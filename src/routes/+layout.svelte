@@ -39,6 +39,10 @@
 </div>
 
 <style>
+	h1 {
+		margin: 0 0 5rem 0;
+	}
+
 	.buttons-container {
 		display: flex;
 		flex-direction: row;
