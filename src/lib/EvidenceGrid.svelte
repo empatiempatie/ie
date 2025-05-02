@@ -37,7 +37,8 @@
     font-family: "Inter";
     font-weight: 300;
     font-style: italic;
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
+    font-size: 0.8rem;
     line-height: 1.3;
     letter-spacing: -0.02em;
     color: #0b0b0b;

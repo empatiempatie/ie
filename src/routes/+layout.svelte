@@ -52,7 +52,8 @@
 	}
 
 	.cta-description {
-		font-size: 1.1rem;
+		/* font-size: 1.1rem; */
+		font-size: 0.9rem;
 		font-weight: 400;
 		text-align: center;
 		margin: 0 0 9rem 0;
@@ -65,23 +66,26 @@
 	}
 
 	footer {
+		/* font-size: 1.1rem; */
+		font-size: 0.9rem;
 		display: grid;
+		margin: 0 0 0.5rem 0;
 		grid-template-columns: 1fr auto 1fr;
 		align-items: start;
-		margin: 0 0 0.5rem 0;
-		font-size: 1.1rem;
 		color: #0b0b0b;
 	}
 
 	footer img {
-		width: 1.7rem;
+		/* width: 1.7rem; */
+		width: 1.5rem;
 		height: auto;
 		margin: 0;
 	}
 
 	.footer-left,
 	.footer-right {
-		font-size: 1rem;
+		/* font-size: 1rem; */
+		font-size: 0.8rem;
 		font-weight: 400;
 	}
 
