@@ -16,14 +16,17 @@ main {
 	}
 }
 
-h1 {
-	font-family: 'Inknut Antiqua';
-	font-weight: 300;
-	font-size: 9rem;
-	line-height: 1;
-	letter-spacing: -0.15em;
+h1,
+h2,
+h3 {
 	margin: 0;
 	color: #0b0b0b;
+}
+
+h1,
+h2 {
+	font-family: 'Inknut Antiqua';
+	font-weight: 300;
 	word-break: keep-all;
 	white-space: normal;
 	hyphens: manual;
@@ -31,19 +34,16 @@ h1 {
 	user-select: none;
 }
 
+h1 {
+	font-size: 9rem;
+	line-height: 1;
+	letter-spacing: -0.15em;
+}
+
 h2 {
-	font-family: 'Inknut Antiqua';
-	font-weight: 300;
 	font-size: 3.7rem;
 	line-height: 1.2;
 	letter-spacing: -0.1em;
-	margin: 0;
-	color: #0b0b0b;
-	word-break: keep-all;
-	white-space: normal;
-	hyphens: manual;
-	cursor: default;
-	user-select: none;
 }
 
 h3 {
@@ -53,8 +53,6 @@ h3 {
 	font-size: 1.9rem;
 	line-height: 1;
 	letter-spacing: -0.02em;
-	margin: 0;
-	color: #0b0b0b;
 }
 
 p,
