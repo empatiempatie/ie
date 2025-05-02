@@ -42,4 +42,11 @@
 	span {
 		font-family: 'Inknut Antiqua';
 	}
+
+	@media (max-width: 768px) {
+		button,
+		span {
+			font-size: 1rem;
+		}
+	}
 </style>
