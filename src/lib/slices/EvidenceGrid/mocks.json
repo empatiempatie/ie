@@ -1,0 +1,84 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "total",
+				"type": "Text"
+			},
+			"title_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "36",
+				"type": "Number"
+			},
+			"flash_interval": {
+				"__TYPE__": "FieldContent",
+				"value": "18",
+				"type": "Number"
+			},
+			"flash_duration": {
+				"__TYPE__": "FieldContent",
+				"value": "34",
+				"type": "Number"
+			},
+			"glitch_interval": {
+				"__TYPE__": "FieldContent",
+				"value": "60",
+				"type": "Number"
+			},
+			"glitch_duration": {
+				"__TYPE__": "FieldContent",
+				"value": "77",
+				"type": "Number"
+			},
+			"evidences": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "harder",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute sit commodo sunt consectetur Lorem aute incididunt aliquip voluptate officia cillum."
+											}
+										}
+									]
+								}
+							],
+							[
+								"status",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "broke",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"slice_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "63",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

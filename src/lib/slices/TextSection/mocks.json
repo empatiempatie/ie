@@ -1,0 +1,61 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"paragraph": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam sit cillum irure ad aliqua eiusmod eiusmod deserunt sunt."
+						}
+					}
+				]
+			},
+			"flash_interval": {
+				"__TYPE__": "FieldContent",
+				"value": "40",
+				"type": "Number"
+			},
+			"flash_duration": {
+				"__TYPE__": "FieldContent",
+				"value": "69",
+				"type": "Number"
+			},
+			"glitch_interval": {
+				"__TYPE__": "FieldContent",
+				"value": "34",
+				"type": "Number"
+			},
+			"glitch_duration": {
+				"__TYPE__": "FieldContent",
+				"value": "83",
+				"type": "Number"
+			},
+			"title_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "43",
+				"type": "Number"
+			},
+			"slice_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "98",
+				"type": "Number"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Doubt"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -7,7 +7,7 @@
 	let { children } = $props();
 </script>
 
-<div class="app">
+<div class="page-container">
 	<header>
 		<h1>{titles.main}</h1>
 	</header>
@@ -16,13 +16,13 @@
 		{@render children()}
 	</main>
 
-	<aside>
+	<!-- <aside>
 		<div class="buttons-container">
 			<Button firstHalf="Submit " specialChar="m" secondHalf="ischief" />
 			<Button firstHalf="Conspire with " specialChar="u" secondHalf="s" />
 		</div>
 		<p class="cta-description">Unserious inquiries only.</p>
-	</aside>
+	</aside> -->
 
 	<footer>
 		<p class="footer-left">{footerData.leftColumn}</p>
@@ -39,6 +39,13 @@
 </div>
 
 <style>
+	.page-container {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
 	h1 {
 		margin: 0 0 5rem 0;
 	}
