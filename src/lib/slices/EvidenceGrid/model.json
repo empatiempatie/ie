@@ -6,17 +6,19 @@
   "variations": [
     {
       "id": "default",
-      "name": "Default",
+      "name": "Evidence Grid",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Title",
-            "placeholder": "The section title"
+            "placeholder": "The section title",
+            "allowTargetBlank": false,
+            "multi": "heading2"
           }
         },
         "title_margin_bottom": {

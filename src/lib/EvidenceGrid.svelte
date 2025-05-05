@@ -1,33 +1,24 @@
 <script lang="ts">
-	import type { GroupField, KeyTextField, RichTextField } from '@prismicio/client';
 	import { PrismicRichText } from '@prismicio/svelte';
-	import { onMount } from 'svelte';
+	import type { GroupField, KeyTextField, RichTextField } from '@prismicio/client';
 
 	interface Evidence {
 		title: string | KeyTextField;
 		description: RichTextField;
 		status: string | KeyTextField;
 	}
+	interface Props {
+		evidences?: Evidence[] | GroupField;
+	}
 
-	let { evidences = [] }: { evidences?: Evidence[] | GroupField } = $props();
-	let mounted = $state(false);
-
-	onMount(() => {
-		mounted = true;
-	});
+	let { evidences = [] }: Props = $props();
 </script>
 
 <div class="evidence-grid">
 	{#each evidences as item}
 		<div class="evidence-item">
 			<h3>{item.title}</h3>
-			{#if mounted}
-				<p>
-					<PrismicRichText field={item.description as RichTextField} />
-				</p>
-			{:else}
-				<p>Loading...</p>
-			{/if}
+			<PrismicRichText field={item.description as RichTextField} />
 			<span class="status">{item.status}</span>
 		</div>
 	{/each}
@@ -44,7 +35,7 @@
 		margin: 0 0 1.5rem 0;
 	}
 
-	.evidence-item p {
+	.evidence-item :global(p) {
 		margin: 0 0 0.8rem 0;
 	}
 

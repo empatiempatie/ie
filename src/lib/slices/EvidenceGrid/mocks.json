@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "total",
-				"type": "Text"
-			},
 			"title_margin_bottom": {
 				"__TYPE__": "FieldContent",
 				"value": "36",
@@ -77,6 +72,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "63",
 				"type": "Number"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Facing"
+						}
+					}
+				]
 			}
 		},
 		"items": []

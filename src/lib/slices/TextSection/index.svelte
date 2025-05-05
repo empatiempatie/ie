@@ -23,7 +23,9 @@
 			glitchDuration={slice.primary.glitch_duration}
 		/>
 	</header>
-	<PrismicRichText field={slice.primary.paragraph} />
+	{#if slice.primary.paragraph}
+		<PrismicRichText field={slice.primary.paragraph} />
+	{/if}
 </section>
 
 <style>

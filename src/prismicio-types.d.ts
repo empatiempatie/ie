@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = EvidenceGridSlice | TextSectionSlice;
+type HomeDocumentDataSlicesSlice = ProjectListSlice | EvidenceGridSlice | TextSectionSlice;
 
 /**
  * Content for home documents
@@ -71,11 +71,11 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 export type AllDocumentTypes = HomeDocument;
 
 /**
- * Item in *EvidenceGrid → Default → Primary → Evidences*
+ * Item in *EvidenceGrid → Evidence Grid → Primary → Evidences*
  */
 export interface EvidenceGridSliceDefaultPrimaryEvidencesItem {
 	/**
-	 * Title field in *EvidenceGrid → Default → Primary → Evidences*
+	 * Title field in *EvidenceGrid → Evidence Grid → Primary → Evidences*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: The evidence title
@@ -85,7 +85,7 @@ export interface EvidenceGridSliceDefaultPrimaryEvidencesItem {
 	title: prismic.KeyTextField;
 
 	/**
-	 * Description field in *EvidenceGrid → Default → Primary → Evidences*
+	 * Description field in *EvidenceGrid → Evidence Grid → Primary → Evidences*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: The evidence description
@@ -95,7 +95,7 @@ export interface EvidenceGridSliceDefaultPrimaryEvidencesItem {
 	description: prismic.RichTextField;
 
 	/**
-	 * Status field in *EvidenceGrid → Default → Primary → Evidences*
+	 * Status field in *EvidenceGrid → Evidence Grid → Primary → Evidences*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: The evidence status
@@ -106,21 +106,21 @@ export interface EvidenceGridSliceDefaultPrimaryEvidencesItem {
 }
 
 /**
- * Primary content in *EvidenceGrid → Default → Primary*
+ * Primary content in *EvidenceGrid → Evidence Grid → Primary*
  */
 export interface EvidenceGridSliceDefaultPrimary {
 	/**
-	 * Title field in *EvidenceGrid → Default → Primary*
+	 * Title field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
-	 * - **Field Type**: Text
+	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: The section title
 	 * - **API ID Path**: evidence_grid.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	title: prismic.KeyTextField;
+	title: prismic.RichTextField;
 
 	/**
-	 * Title Margin Bottom field in *EvidenceGrid → Default → Primary*
+	 * Title Margin Bottom field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The bottom margin in rem after the title
@@ -130,7 +130,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	title_margin_bottom: prismic.NumberField;
 
 	/**
-	 * Flash Interval field in *EvidenceGrid → Default → Primary*
+	 * Flash Interval field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The time interval in milliseconds for random character flashing
@@ -140,7 +140,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	flash_interval: prismic.NumberField;
 
 	/**
-	 * Flash Duration field in *EvidenceGrid → Default → Primary*
+	 * Flash Duration field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The character flash duration in milliseconds
@@ -150,7 +150,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	flash_duration: prismic.NumberField;
 
 	/**
-	 * Glitch Interval field in *EvidenceGrid → Default → Primary*
+	 * Glitch Interval field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The time interval in milliseconds for random character glitching
@@ -160,7 +160,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	glitch_interval: prismic.NumberField;
 
 	/**
-	 * Glitch Duration field in *EvidenceGrid → Default → Primary*
+	 * Glitch Duration field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The character glitch duration in milliseconds
@@ -170,7 +170,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	glitch_duration: prismic.NumberField;
 
 	/**
-	 * Evidences field in *EvidenceGrid → Default → Primary*
+	 * Evidences field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
@@ -180,7 +180,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 	evidences: prismic.GroupField<Simplify<EvidenceGridSliceDefaultPrimaryEvidencesItem>>;
 
 	/**
-	 * Slice Margin Bottom field in *EvidenceGrid → Default → Primary*
+	 * Slice Margin Bottom field in *EvidenceGrid → Evidence Grid → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The bottom margin for the slice in rem units
@@ -191,7 +191,7 @@ export interface EvidenceGridSliceDefaultPrimary {
 }
 
 /**
- * Default variation for EvidenceGrid Slice
+ * Evidence Grid variation for EvidenceGrid Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -218,11 +218,78 @@ type EvidenceGridSliceVariation = EvidenceGridSliceDefault;
 export type EvidenceGridSlice = prismic.SharedSlice<'evidence_grid', EvidenceGridSliceVariation>;
 
 /**
- * Primary content in *TextSection → Text Section Default → Primary*
+ * Item in *ProjectList → Default → Primary → Project List*
+ */
+export interface ProjectListSliceDefaultPrimaryProjectListItem {
+	/**
+	 * Project Type field in *ProjectList → Default → Primary → Project List*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Project types
+	 * - **API ID Path**: project_list.default.primary.project_list[].project_type
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	project_type: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ProjectList → Default → Primary*
+ */
+export interface ProjectListSliceDefaultPrimary {
+	/**
+	 * Title field in *ProjectList → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The title for the project list
+	 * - **API ID Path**: project_list.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Project List field in *ProjectList → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: project_list.default.primary.project_list[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	project_list: prismic.GroupField<Simplify<ProjectListSliceDefaultPrimaryProjectListItem>>;
+}
+
+/**
+ * Default variation for ProjectList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectListSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ProjectListSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ProjectList*
+ */
+type ProjectListSliceVariation = ProjectListSliceDefault;
+
+/**
+ * ProjectList Shared Slice
+ *
+ * - **API ID**: `project_list`
+ * - **Description**: ProjectList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectListSlice = prismic.SharedSlice<'project_list', ProjectListSliceVariation>;
+
+/**
+ * Primary content in *TextSection → Default → Primary*
  */
 export interface TextSectionSliceDefaultPrimary {
 	/**
-	 * Title field in *TextSection → Text Section Default → Primary*
+	 * Title field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: The title of the section.
@@ -232,7 +299,7 @@ export interface TextSectionSliceDefaultPrimary {
 	title: prismic.RichTextField;
 
 	/**
-	 * Flash Interval field in *TextSection → Text Section Default → Primary*
+	 * Flash Interval field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The time interval in milliseconds for random character flashing
@@ -242,7 +309,7 @@ export interface TextSectionSliceDefaultPrimary {
 	flash_interval: prismic.NumberField;
 
 	/**
-	 * Flash Duration field in *TextSection → Text Section Default → Primary*
+	 * Flash Duration field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The character flash duration in milliseconds
@@ -252,7 +319,7 @@ export interface TextSectionSliceDefaultPrimary {
 	flash_duration: prismic.NumberField;
 
 	/**
-	 * Glitch Interval field in *TextSection → Text Section Default → Primary*
+	 * Glitch Interval field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The time interval in milliseconds for random character glitching
@@ -262,7 +329,7 @@ export interface TextSectionSliceDefaultPrimary {
 	glitch_interval: prismic.NumberField;
 
 	/**
-	 * Glitch Duration field in *TextSection → Text Section Default → Primary*
+	 * Glitch Duration field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The character glitch duration in milliseconds
@@ -272,7 +339,7 @@ export interface TextSectionSliceDefaultPrimary {
 	glitch_duration: prismic.NumberField;
 
 	/**
-	 * Title Margin Bottom field in *TextSection → Text Section Default → Primary*
+	 * Title Margin Bottom field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The bottom margin in rem after the title
@@ -282,7 +349,7 @@ export interface TextSectionSliceDefaultPrimary {
 	title_margin_bottom: prismic.NumberField;
 
 	/**
-	 * Paragraph field in *TextSection → Text Section Default → Primary*
+	 * Paragraph field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: The paragraph of the TextSection
@@ -292,7 +359,7 @@ export interface TextSectionSliceDefaultPrimary {
 	paragraph: prismic.RichTextField;
 
 	/**
-	 * Slice Margin Bottom field in *TextSection → Text Section Default → Primary*
+	 * Slice Margin Bottom field in *TextSection → Default → Primary*
 	 *
 	 * - **Field Type**: Number
 	 * - **Placeholder**: The bottom margin for the slice in rem units
@@ -303,7 +370,7 @@ export interface TextSectionSliceDefaultPrimary {
 }
 
 /**
- * Text Section Default variation for TextSection Slice
+ * Default variation for TextSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -359,6 +426,11 @@ declare module '@prismicio/client' {
 			EvidenceGridSliceDefaultPrimary,
 			EvidenceGridSliceVariation,
 			EvidenceGridSliceDefault,
+			ProjectListSlice,
+			ProjectListSliceDefaultPrimaryProjectListItem,
+			ProjectListSliceDefaultPrimary,
+			ProjectListSliceVariation,
+			ProjectListSliceDefault,
 			TextSectionSlice,
 			TextSectionSliceDefaultPrimary,
 			TextSectionSliceVariation,

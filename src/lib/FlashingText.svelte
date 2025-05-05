@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { KeyTextField, NumberField, RichTextField } from '@prismicio/client';
-	import { PrismicRichText } from '@prismicio/svelte';
+	import type { NumberField, RichTextField } from '@prismicio/client';
 	import { onMount, onDestroy } from 'svelte';
 
 	interface Props {
@@ -41,9 +40,7 @@
 		return glitchChars[Math.floor(Math.random() * glitchChars.length)];
 	}
 
-	// Process rich text content
 	let contentString = '';
-	
 	if (typeof content === 'string') {
 		contentString = content;
 	} else if (Array.isArray(content)) {

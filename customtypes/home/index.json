@@ -11,6 +11,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"project_list": {
+							"type": "SharedSlice"
+						},
 						"evidence_grid": {
 							"type": "SharedSlice"
 						},

@@ -16,13 +16,13 @@
 		{@render children()}
 	</main>
 
-	<!-- <aside>
+	<aside>
 		<div class="buttons-container">
 			<Button firstHalf="Submit " specialChar="m" secondHalf="ischief" />
 			<Button firstHalf="Conspire with " specialChar="u" secondHalf="s" />
 		</div>
 		<p class="cta-description">Unserious inquiries only.</p>
-	</aside> -->
+	</aside>
 
 	<footer>
 		<p class="footer-left">{footerData.leftColumn}</p>

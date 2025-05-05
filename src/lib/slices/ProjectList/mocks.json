@@ -1,0 +1,38 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"project_list": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"project_type",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Magna deserunt ut amet eiusmod culpa fugiat incididunt sit anim ipsum anim adipisicing do. Pariatur nisi incididunt amet ullamco esse."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "teeth",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
