@@ -35,14 +35,6 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"title",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "harder",
-									"type": "Text"
-								}
-							],
-							[
 								"description",
 								{
 									"__TYPE__": "StructuredTextContent",
@@ -62,6 +54,18 @@
 									"__TYPE__": "FieldContent",
 									"value": "broke",
 									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "42afb3e1-fd3f-4f8f-a2b1-a5a42bd78d7c",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "city"
+									}
 								}
 							]
 						]

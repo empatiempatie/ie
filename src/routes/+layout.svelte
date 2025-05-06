@@ -9,7 +9,7 @@
 
 <div class="page-container">
 	<header>
-		<h1>{titles.main}</h1>
+		<h1><a href="/">{titles.main}</a></h1>
 	</header>
 
 	<main>
@@ -48,6 +48,11 @@
 
 	h1 {
 		margin: 0 0 5rem 0;
+	}
+
+	h1 a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	.buttons-container {

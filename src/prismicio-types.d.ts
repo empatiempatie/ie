@@ -4,6 +4,70 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type EvidenceDocumentDataSlicesSlice = TextSectionSlice;
+
+/**
+ * Content for evidence documents
+ */
+interface EvidenceDocumentData {
+	/**
+	 * Slice Zone field in *evidence*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: evidence.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<EvidenceDocumentDataSlicesSlice> /**
+	 * Meta Title field in *evidence*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: evidence.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *evidence*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: evidence.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *evidence*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: evidence.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * evidence document from Prismic
+ *
+ * - **API ID**: `evidence`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EvidenceDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<EvidenceDocumentData>,
+	'evidence',
+	Lang
+>;
+
 type HomeDocumentDataSlicesSlice = ProjectListSlice | EvidenceGridSlice | TextSectionSlice;
 
 /**
@@ -68,7 +132,7 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = HomeDocument;
+export type AllDocumentTypes = EvidenceDocument | HomeDocument;
 
 /**
  * Item in *EvidenceGrid → Evidence Grid → Primary → Evidences*
@@ -77,12 +141,12 @@ export interface EvidenceGridSliceDefaultPrimaryEvidencesItem {
 	/**
 	 * Title field in *EvidenceGrid → Evidence Grid → Primary → Evidences*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: The evidence title
+	 * - **Field Type**: Link
+	 * - **Placeholder**: The title of the project
 	 * - **API ID Path**: evidence_grid.default.primary.evidences[].title
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
 	 */
-	title: prismic.KeyTextField;
+	title: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
 	/**
 	 * Description field in *EvidenceGrid → Evidence Grid → Primary → Evidences*
@@ -417,6 +481,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			EvidenceDocument,
+			EvidenceDocumentData,
+			EvidenceDocumentDataSlicesSlice,
 			HomeDocument,
 			HomeDocumentData,
 			HomeDocumentDataSlicesSlice,

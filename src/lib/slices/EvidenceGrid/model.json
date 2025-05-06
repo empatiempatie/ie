@@ -63,10 +63,14 @@
             "repeat": true,
             "fields": {
               "title": {
-                "type": "Text",
+                "type": "Link",
                 "config": {
                   "label": "Title",
-                  "placeholder": "The evidence title"
+                  "placeholder": "The title of the project",
+                  "select": null,
+                  "allowTargetBlank": false,
+                  "allowText": true,
+                  "repeat": false
                 }
               },
               "description": {
