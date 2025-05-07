@@ -1,0 +1,44 @@
+{
+  "id": "project_list",
+  "type": "SharedSlice",
+  "name": "ProjectList",
+  "description": "ProjectList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "The title for the project list"
+          }
+        },
+        "project_list": {
+          "type": "Group",
+          "config": {
+            "label": "Project List",
+            "repeat": true,
+            "fields": {
+              "project_type": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Project Type",
+                  "placeholder": "Project types",
+                  "allowTargetBlank": false,
+                  "single": "paragraph,em,strong"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

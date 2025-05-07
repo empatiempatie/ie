@@ -7,9 +7,9 @@
 	let { children } = $props();
 </script>
 
-<div class="app">
+<div class="page-container">
 	<header>
-		<h1>{titles.main}</h1>
+		<h1><a href="/">{titles.main}</a></h1>
 	</header>
 
 	<main>
@@ -18,10 +18,11 @@
 
 	<aside>
 		<div class="buttons-container">
-			<Button firstHalf="Submit " specialChar="m" secondHalf="ischief" />
-			<Button firstHalf="Conspire with " specialChar="u" secondHalf="s" />
+			<Button disabled={true} firstHalf="Submit " specialChar="m" secondHalf="ischief" />
+			<Button disabled={true} firstHalf="Conspire with " specialChar="u" secondHalf="s" />
 		</div>
-		<p class="cta-description">Unserious inquiries only.</p>
+		<!-- <p class="cta-description">Unserious inquiries only.</p> -->
+		<p class="cta-description">[Coming Soon]</p>
 	</aside>
 
 	<footer>
@@ -39,8 +40,20 @@
 </div>
 
 <style>
+	.page-container {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
 	h1 {
 		margin: 0 0 5rem 0;
+	}
+
+	h1 a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	.buttons-container {

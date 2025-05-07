@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import EvidenceGrid from '$lib/EvidenceGrid.svelte';
 	import FlashingText from '$lib/FlashingText.svelte';
 	import ProjectList from '$lib/ProjectList.svelte';
@@ -79,4 +79,18 @@
 	.evidence-section {
 		margin: 0 0 15rem 0;
 	}
-</style>
+</style> -->
+
+<script lang="ts">
+	import { SliceZone } from '@prismicio/svelte';
+	import { components } from '$lib/slices';
+
+	let { data } = $props();
+</script>
+
+<svelte:head>
+	<title>i.e.,</title>
+	<meta name="description" content="Cursed tech for mischievous togetherness" />
+</svelte:head>
+
+<SliceZone slices={data.page.data.slices} {components} />

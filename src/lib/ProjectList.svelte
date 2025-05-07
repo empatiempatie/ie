@@ -1,14 +1,23 @@
 <script lang="ts">
-	let { projectDescriptionList = [''] }: { projectDescriptionList?: string[] } = $props();
+	type Props = {
+		projectDescriptionList?: string[];
+	};
+
+	let { projectDescriptionList = [''] }: Props = $props();
 </script>
 
-<ul>
-	{#each projectDescriptionList as projectDescription}
-		<li>
-			{projectDescription}
-		</li>
-	{/each}
-</ul>
+<aside>
+	<header>
+		<h3>Now open to:</h3>
+	</header>
+	<ul>
+		{#each projectDescriptionList as projectDescription}
+			<li>
+				{projectDescription}
+			</li>
+		{/each}
+	</ul>
+</aside>
 
 <style>
 	ul {

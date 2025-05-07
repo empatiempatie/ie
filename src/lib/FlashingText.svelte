@@ -1,14 +1,15 @@
 <script lang="ts">
+	import type { NumberField, RichTextField } from '@prismicio/client';
 	import { onMount, onDestroy } from 'svelte';
 
 	interface Props {
 		tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
-		content: string;
+		content: string | RichTextField;
 		flashColor?: string;
-		flashInterval?: number;
-		flashDuration?: number;
-		glitchInterval?: number;
-		glitchDuration?: number;
+		flashInterval?: number | NumberField | NumberField;
+		flashDuration?: number | NumberField | NumberField;
+		glitchInterval?: number | NumberField | NumberField;
+		glitchDuration?: number | NumberField | NumberField;
 	}
 
 	let {
@@ -22,8 +23,8 @@
 	}: Props = $props();
 
 	let elementRef: HTMLElement | null = null;
-	let flashIntervalId: number | undefined = undefined;
-	let glitchIntervalId: number | undefined = undefined;
+	let flashIntervalId: number | undefined | NodeJS.Timeout = undefined;
+	let glitchIntervalId: number | undefined | NodeJS.Timeout = undefined;
 	let spans: HTMLElement[] = [];
 
 	const glitchChars = [
@@ -39,8 +40,24 @@
 		return glitchChars[Math.floor(Math.random() * glitchChars.length)];
 	}
 
+	let contentString = '';
+	if (typeof content === 'string') {
+		contentString = content;
+	} else if (Array.isArray(content)) {
+		// Process rich text content by iterating through each element
+		// and adding line breaks between elements
+		const textParts = [];
+		for (let i = 0; i < content.length; i++) {
+			const node = content[i];
+			if ('text' in node && typeof node.text === 'string') {
+				textParts.push(node.text);
+			}
+		}
+		contentString = textParts.join('<br>');
+	}
+
 	// Split content into characters/tags, wrapping chars in spans
-	const segments = content.match(/<[^>]+>|./gs) || [];
+	const segments = contentString.match(/<[^>]+>|./gs) || [];
 	const processedContent = segments
 		.map((seg) => {
 			if (seg.startsWith('<') && seg.endsWith('>')) {
@@ -69,10 +86,10 @@
 
 						setTimeout(() => {
 							span.style.color = originalColor;
-						}, flashDuration);
+						}, flashDuration as number);
 					}
 				}
-			}, flashInterval);
+			}, flashInterval as number);
 
 			glitchIntervalId = setInterval(() => {
 				if (spans.length > 0) {
@@ -90,11 +107,11 @@
 
 							setTimeout(() => {
 								span.textContent = originalChar;
-							}, glitchDuration);
+							}, glitchDuration as number);
 						}
 					}
 				}
-			}, glitchInterval);
+			}, glitchInterval as number);
 		}
 	});
 
@@ -110,6 +127,7 @@
 
 <svelte:element this={tag} bind:this={elementRef} class="flashing-text">
 	{@html processedContent}
+	<!-- <PrismicRichText field={processedContent} /> -->
 </svelte:element>
 
 <style>

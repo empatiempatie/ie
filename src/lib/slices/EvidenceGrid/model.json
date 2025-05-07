@@ -1,0 +1,106 @@
+{
+  "id": "evidence_grid",
+  "type": "SharedSlice",
+  "name": "EvidenceGrid",
+  "description": "EvidenceGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Evidence Grid",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "The section title",
+            "allowTargetBlank": false,
+            "multi": "heading2"
+          }
+        },
+        "title_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Title Margin Bottom",
+            "placeholder": "The bottom margin in rem after the title"
+          }
+        },
+        "flash_interval": {
+          "type": "Number",
+          "config": {
+            "label": "Flash Interval",
+            "placeholder": "The time interval in milliseconds for random character flashing"
+          }
+        },
+        "flash_duration": {
+          "type": "Number",
+          "config": {
+            "label": "Flash Duration",
+            "placeholder": "The character flash duration in milliseconds"
+          }
+        },
+        "glitch_interval": {
+          "type": "Number",
+          "config": {
+            "label": "Glitch Interval",
+            "placeholder": "The time interval in milliseconds for random character glitching"
+          }
+        },
+        "glitch_duration": {
+          "type": "Number",
+          "config": {
+            "label": "Glitch Duration",
+            "placeholder": "The character glitch duration in milliseconds"
+          }
+        },
+        "evidences": {
+          "type": "Group",
+          "config": {
+            "label": "Evidences",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Link",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "The title of the project",
+                  "select": null,
+                  "allowTargetBlank": false,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "The evidence description",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "status": {
+                "type": "Text",
+                "config": {
+                  "label": "Status",
+                  "placeholder": "The evidence status"
+                }
+              }
+            }
+          }
+        },
+        "slice_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Slice Margin Bottom",
+            "placeholder": "The bottom margin for the slice in rem units"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
