@@ -18,10 +18,11 @@
 
 	<aside>
 		<div class="buttons-container">
-			<Button firstHalf="Submit " specialChar="m" secondHalf="ischief" />
-			<Button firstHalf="Conspire with " specialChar="u" secondHalf="s" />
+			<Button disabled={true} firstHalf="Submit " specialChar="m" secondHalf="ischief" />
+			<Button disabled={true} firstHalf="Conspire with " specialChar="u" secondHalf="s" />
 		</div>
-		<p class="cta-description">Unserious inquiries only.</p>
+		<!-- <p class="cta-description">Unserious inquiries only.</p> -->
+		<p class="cta-description">[Coming Soon]</p>
 	</aside>
 
 	<footer>

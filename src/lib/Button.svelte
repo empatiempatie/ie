@@ -1,15 +1,21 @@
 <script lang="ts">
 	interface Props {
+		disabled?: boolean;
 		firstHalf?: string;
 		secondHalf?: string;
 		specialChar?: string;
 	}
 
-	let { firstHalf = '', secondHalf = '', specialChar = '' }: Props = $props();
+	let { disabled = false, firstHalf = '', secondHalf = '', specialChar = '' }: Props = $props();
 	let isHovered = $state(false);
 </script>
 
-<button onmouseenter={() => (isHovered = true)} onmouseleave={() => (isHovered = false)}>
+<button
+	{disabled}
+	onmouseenter={() => !disabled && (isHovered = true)}
+	onmouseleave={() => !disabled && (isHovered = false)}
+	class:disabled
+>
 	{firstHalf}<span>{specialChar}</span>{secondHalf}
 	{#if isHovered}
 		<span>→</span>
@@ -37,6 +43,12 @@
 		padding: 0.8em 0.5em;
 		cursor: pointer;
 		border: none;
+		transition: opacity 0.2s ease, cursor 0.2s ease;
+	}
+
+	button.disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 
 	span {
