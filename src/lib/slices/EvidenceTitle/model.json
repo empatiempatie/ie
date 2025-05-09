@@ -1,0 +1,51 @@
+{
+  "id": "evidence_title",
+  "type": "SharedSlice",
+  "name": "EvidenceTitle",
+  "description": "EvidenceTitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "evidence_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Evidence Title",
+            "placeholder": "The title of the Evidence",
+            "allowTargetBlank": false,
+            "multi": "heading3"
+          }
+        },
+        "title_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Title Margin Bottom",
+            "placeholder": "The bottom margin for the Evidence title"
+          }
+        },
+        "evidence_date": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Evidence Date",
+            "placeholder": "The date of the evidence",
+            "allowTargetBlank": false,
+            "single": "paragraph"
+          }
+        },
+        "slice_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Slice Margin Bottom",
+            "placeholder": "The bottom margin for the slice"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

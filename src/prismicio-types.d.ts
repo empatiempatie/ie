@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type EvidenceDocumentDataSlicesSlice = TextSectionSlice;
+type EvidenceDocumentDataSlicesSlice = EvidenceTitleSlice | TextSectionSlice;
 
 /**
  * Content for evidence documents
@@ -282,6 +282,78 @@ type EvidenceGridSliceVariation = EvidenceGridSliceDefault;
 export type EvidenceGridSlice = prismic.SharedSlice<'evidence_grid', EvidenceGridSliceVariation>;
 
 /**
+ * Primary content in *EvidenceTitle → Default → Primary*
+ */
+export interface EvidenceTitleSliceDefaultPrimary {
+	/**
+	 * Evidence Title field in *EvidenceTitle → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: The title of the Evidence
+	 * - **API ID Path**: evidence_title.default.primary.evidence_title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	evidence_title: prismic.RichTextField;
+
+	/**
+	 * Title Margin Bottom field in *EvidenceTitle → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin for the Evidence title
+	 * - **API ID Path**: evidence_title.default.primary.title_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	title_margin_bottom: prismic.NumberField;
+
+	/**
+	 * Evidence Date field in *EvidenceTitle → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: The date of the evidence
+	 * - **API ID Path**: evidence_title.default.primary.evidence_date
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	evidence_date: prismic.RichTextField;
+
+	/**
+	 * Slice Margin Bottom field in *EvidenceTitle → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin for the slice
+	 * - **API ID Path**: evidence_title.default.primary.slice_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	slice_margin_bottom: prismic.NumberField;
+}
+
+/**
+ * Default variation for EvidenceTitle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EvidenceTitleSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<EvidenceTitleSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *EvidenceTitle*
+ */
+type EvidenceTitleSliceVariation = EvidenceTitleSliceDefault;
+
+/**
+ * EvidenceTitle Shared Slice
+ *
+ * - **API ID**: `evidence_title`
+ * - **Description**: EvidenceTitle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EvidenceTitleSlice = prismic.SharedSlice<'evidence_title', EvidenceTitleSliceVariation>;
+
+/**
  * Item in *ProjectList → Default → Primary → Project List*
  */
 export interface ProjectListSliceDefaultPrimaryProjectListItem {
@@ -493,6 +565,10 @@ declare module '@prismicio/client' {
 			EvidenceGridSliceDefaultPrimary,
 			EvidenceGridSliceVariation,
 			EvidenceGridSliceDefault,
+			EvidenceTitleSlice,
+			EvidenceTitleSliceDefaultPrimary,
+			EvidenceTitleSliceVariation,
+			EvidenceTitleSliceDefault,
 			ProjectListSlice,
 			ProjectListSliceDefaultPrimaryProjectListItem,
 			ProjectListSliceDefaultPrimary,

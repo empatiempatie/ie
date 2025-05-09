@@ -6,10 +6,10 @@
 		tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 		content: string | RichTextField;
 		flashColor?: string;
-		flashInterval?: number | NumberField | NumberField;
-		flashDuration?: number | NumberField | NumberField;
-		glitchInterval?: number | NumberField | NumberField;
-		glitchDuration?: number | NumberField | NumberField;
+		flashInterval?: number | NumberField;
+		flashDuration?: number | NumberField;
+		glitchInterval?: number | NumberField;
+		glitchDuration?: number | NumberField;
 	}
 
 	let {
@@ -21,6 +21,10 @@
 		glitchInterval = 2000,
 		glitchDuration = 50
 	}: Props = $props();
+
+	// Only enable flashing and glitching if all required values are valid
+	const enableFlashing = (flashInterval ?? 0) > 0 && (flashDuration ?? 0) > 0;
+	const enableGlitching = (glitchInterval ?? 0) > 0 && (glitchDuration ?? 0) > 0;
 
 	let elementRef: HTMLElement | null = null;
 	let flashIntervalId: number | undefined | NodeJS.Timeout = undefined;
@@ -74,44 +78,48 @@
 		if (elementRef) {
 			spans = Array.from(elementRef.querySelectorAll('span[data-char]'));
 
-			flashIntervalId = setInterval(() => {
-				if (spans.length > 0) {
-					const randomIndex = Math.floor(Math.random() * spans.length);
-					const span = spans[randomIndex];
-
-					if (span) {
-						const originalColor = span.style.color || window.getComputedStyle(span).color;
-						span.style.transition = 'color 0.05s ease-in-out';
-						span.style.color = flashColor;
-
-						setTimeout(() => {
-							span.style.color = originalColor;
-						}, flashDuration as number);
-					}
-				}
-			}, flashInterval as number);
-
-			glitchIntervalId = setInterval(() => {
-				if (spans.length > 0) {
-					// Glitch multiple characters at once for better effect
-					const numGlitches = Math.floor(Math.random() * 3) + 1; // 1-3 glitches at once
-
-					for (let i = 0; i < numGlitches; i++) {
+			if (enableFlashing) {
+				flashIntervalId = setInterval(() => {
+					if (spans.length > 0) {
 						const randomIndex = Math.floor(Math.random() * spans.length);
 						const span = spans[randomIndex];
 
 						if (span) {
-							const originalChar = span.getAttribute('data-char') || span.textContent;
-							const glitchChar = getRandomGlitchChar();
-							span.textContent = glitchChar;
+							const originalColor = span.style.color || window.getComputedStyle(span).color;
+							span.style.transition = 'color 0.05s ease-in-out';
+							span.style.color = flashColor;
 
 							setTimeout(() => {
-								span.textContent = originalChar;
-							}, glitchDuration as number);
+								span.style.color = originalColor;
+							}, flashDuration as number);
 						}
 					}
-				}
-			}, glitchInterval as number);
+				}, flashInterval as number);
+			}
+
+			if (enableGlitching) {
+				glitchIntervalId = setInterval(() => {
+					if (spans.length > 0) {
+						// Glitch multiple characters at once for better effect
+						const numGlitches = Math.floor(Math.random() * 3) + 1; // 1-3 glitches at once
+
+						for (let i = 0; i < numGlitches; i++) {
+							const randomIndex = Math.floor(Math.random() * spans.length);
+							const span = spans[randomIndex];
+
+							if (span) {
+								const originalChar = span.getAttribute('data-char') || span.textContent;
+								const glitchChar = getRandomGlitchChar();
+								span.textContent = glitchChar;
+
+								setTimeout(() => {
+									span.textContent = originalChar;
+								}, glitchDuration as number);
+							}
+						}
+					}
+				}, glitchInterval as number);
+			}
 		}
 	});
 

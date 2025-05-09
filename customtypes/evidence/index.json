@@ -17,6 +17,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"evidence_title": {
+							"type": "SharedSlice"
+						},
 						"text_section": {
 							"type": "SharedSlice"
 						}

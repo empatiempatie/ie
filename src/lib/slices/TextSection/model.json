@@ -17,8 +17,8 @@
           "config": {
             "label": "Title",
             "placeholder": "The title of the section.",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "allowTargetBlank": false,
+            "multi": "heading2,heading5"
           }
         },
         "flash_interval": {

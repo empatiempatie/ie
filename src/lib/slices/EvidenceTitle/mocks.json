@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"evidence_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Describe"
+						}
+					}
+				]
+			},
+			"evidence_date": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Excepteur non non ipsum."
+						}
+					}
+				]
+			},
+			"title_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "56",
+				"type": "Number"
+			},
+			"slice_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "43",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]
