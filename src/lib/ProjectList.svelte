@@ -7,9 +7,7 @@
 </script>
 
 <aside>
-	<header>
-		<h3>Now open to:</h3>
-	</header>
+	<h3>Now open to:</h3>
 	<ul>
 		{#each projectDescriptionList as projectDescription}
 			<li>

@@ -6,9 +6,7 @@
 </script>
 
 <aside data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-	<header>
-		<h3>{slice.primary.title}</h3>
-	</header>
+	<h3>{slice.primary.title}</h3>
 	<ul>
 		{#each slice.primary.project_list as item}
 			<li>

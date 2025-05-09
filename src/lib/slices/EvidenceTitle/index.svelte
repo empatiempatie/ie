@@ -5,7 +5,7 @@
 	export let slice: Content.EvidenceTitleSlice;
 </script>
 
-<header
+<span
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 	class="evidence-title-container"
@@ -16,7 +16,7 @@
 >
 	<PrismicRichText field={slice.primary.evidence_title} />
 	<PrismicRichText field={slice.primary.evidence_date} />
-</header>
+</span>
 
 <style>
 	.evidence-title-container {

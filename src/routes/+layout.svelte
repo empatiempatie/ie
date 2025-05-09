@@ -9,7 +9,9 @@
 
 <div class="page-container">
 	<header>
-		<h1><a href="/">{titles.main}</a></h1>
+		<span class="site-logo">
+			<a href="/">{titles.main}</a>
+		</span>
 	</header>
 
 	<main>
@@ -40,20 +42,34 @@
 </div>
 
 <style>
+	header {
+		margin-bottom: 5rem;
+	}
+
+	.site-logo {
+		font-family: 'Inknut Antiqua';
+		font-weight: 300;
+		font-size: 8.5rem;
+		line-height: 1;
+		letter-spacing: -0.15em;
+		word-break: keep-all;
+		white-space: normal;
+		hyphens: manual;
+		cursor: default;
+		user-select: none;
+		color: #0b0b0b;
+	}
+
+	.site-logo a {
+		color: inherit;
+		text-decoration: none;
+	}
+
 	.page-container {
 		position: relative;
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-	}
-
-	h1 {
-		margin: 0 0 5rem 0;
-	}
-
-	h1 a {
-		color: inherit;
-		text-decoration: none;
 	}
 
 	.buttons-container {
