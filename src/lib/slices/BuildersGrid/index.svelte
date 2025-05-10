@@ -42,7 +42,7 @@
 	.builders-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 5rem 1rem;
+		gap: 1rem;
 	}
 
 	.builder-item {
@@ -72,7 +72,7 @@
 	@media (max-width: 576px) {
 		.builders-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 1rem;
 		}
 	}
 </style>

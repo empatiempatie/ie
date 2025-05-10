@@ -51,8 +51,9 @@
 		gap: 5rem 1rem;
 	}
 
-	.evidence-item h3 {
-		margin: 0 0 1.5rem 0;
+	.evidence-item h3,
+	.evidence-item :global(p) {
+		margin: 0 0 0.8rem 0;
 	}
 
 	.evidence-item :global(a) {
@@ -67,10 +68,6 @@
 	.evidence-item :global(a:hover) {
 		animation: microGlitch 0.15s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 		color: #e35b52;
-	}
-
-	.evidence-item :global(p) {
-		margin: 0 0 0.8rem 0;
 	}
 
 	.status {
