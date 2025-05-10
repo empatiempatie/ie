@@ -45,13 +45,6 @@
 		}
 	}
 
-	@media (max-width: 768px) {
-		.evidence-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-	}
-
 	.evidence-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -91,5 +84,12 @@
 		color: #0b0b0b;
 		cursor: default;
 		user-select: none;
+	}
+
+	@media (max-width: 768px) {
+		.evidence-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
 	}
 </style>
