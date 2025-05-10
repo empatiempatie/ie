@@ -19,7 +19,6 @@
 		text-align: center;
 		width: 100vw;
 		margin: 0 0 var(--section-margin, 0) 0;
-		padding: 0;
 	}
 
 	:global(.image-aside-container img) {
@@ -27,7 +26,7 @@
 		height: auto;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		.image-aside-container {
 			width: 100%;
 		}

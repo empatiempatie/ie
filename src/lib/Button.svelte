@@ -1,32 +1,44 @@
 <script lang="ts">
+	import { PrismicLink } from '@prismicio/svelte';
+	import type { ContentRelationshipField, KeyTextField } from '@prismicio/client';
+
 	interface Props {
 		disabled?: boolean;
-		firstHalf?: string;
-		secondHalf?: string;
-		specialChar?: string;
+		firstHalf?: string | KeyTextField;
+		secondHalf?: string | KeyTextField;
+		specialChar?: string | KeyTextField;
+		route: ContentRelationshipField;
 	}
 
-	let { disabled = false, firstHalf = '', secondHalf = '', specialChar = '' }: Props = $props();
+	let {
+		disabled = false,
+		firstHalf = '',
+		secondHalf = '',
+		specialChar = '',
+		route
+	}: Props = $props();
+
 	let isHovered = $state(false);
 </script>
 
-<button
-	{disabled}
-	onmouseenter={() => !disabled && (isHovered = true)}
-	onmouseleave={() => !disabled && (isHovered = false)}
-	class:disabled
->
-	{firstHalf}<span>{specialChar}</span>{secondHalf}
-	{#if isHovered}
-		<span>→</span>
-	{/if}
-</button>
+<PrismicLink field={route}>
+	<button
+		{disabled}
+		onmouseenter={() => !disabled && (isHovered = true)}
+		onmouseleave={() => !disabled && (isHovered = false)}
+		class:disabled
+	>
+		{firstHalf} <span>{specialChar}</span>{secondHalf}
+		{#if isHovered}
+			<span>→</span>
+		{/if}
+	</button>
+</PrismicLink>
 
 <style>
 	button,
 	span {
 		font-weight: 300;
-		/* font-size: 1.9rem; */
 		font-size: 1.4rem;
 		line-height: 1.3;
 		letter-spacing: -0.02em;
@@ -43,7 +55,8 @@
 		padding: 0.8em 0.5em;
 		cursor: pointer;
 		border: none;
-		transition: opacity 0.2s ease, cursor 0.2s ease;
+		min-width: 14rem;
+		justify-content: center;
 	}
 
 	button.disabled {

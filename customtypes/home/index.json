@@ -11,6 +11,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"buttons_aside": {
+							"type": "SharedSlice"
+						},
 						"project_list": {
 							"type": "SharedSlice"
 						},

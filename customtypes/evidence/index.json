@@ -17,6 +17,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"buttons_aside": {
+							"type": "SharedSlice"
+						},
 						"builders_grid": {
 							"type": "SharedSlice"
 						},

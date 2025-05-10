@@ -1,0 +1,71 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"disabled",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							],
+							[
+								"last_characters",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "village",
+									"type": "Text"
+								}
+							],
+							[
+								"styled_character",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "habit",
+									"type": "Text"
+								}
+							],
+							[
+								"firstcharacters",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "flat",
+									"type": "Text"
+								}
+							],
+							[
+								"buttonroute",
+								{
+									"key": "a5e920d8-7816-4d24-8a46-2652b831f3c5",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"cta_description": {
+				"__TYPE__": "FieldContent",
+				"value": "laugh",
+				"type": "Text"
+			},
+			"slice_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "9",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

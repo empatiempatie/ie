@@ -18,15 +18,6 @@
 		{@render children()}
 	</main>
 
-	<aside>
-		<div class="buttons-container">
-			<Button disabled={true} firstHalf="Submit " specialChar="m" secondHalf="ischief" />
-			<Button disabled={true} firstHalf="Conspire with " specialChar="u" secondHalf="s" />
-		</div>
-		<!-- <p class="cta-description">Unserious inquiries only.</p> -->
-		<p class="cta-description">[Coming Soon]</p>
-	</aside>
-
 	<footer>
 		<p class="footer-left">{footerData.leftColumn}</p>
 		<img src={logo} alt="i.e., logo" />
@@ -72,24 +63,8 @@
 		flex-direction: column;
 	}
 
-	.buttons-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 0.4rem;
-		margin: 0 0 0.9rem 0;
-	}
-
-	.cta-description {
-		font-size: 0.9rem;
-		font-weight: 400;
-		text-align: center;
-		margin: 0 0 9rem 0;
-	}
-
 	footer,
-	header,
-	aside {
+	header {
 		padding: 0 0.7em;
 	}
 

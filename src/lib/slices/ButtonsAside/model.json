@@ -1,0 +1,80 @@
+{
+  "id": "buttons_aside",
+  "type": "SharedSlice",
+  "name": "ButtonsAside",
+  "description": "ButtonsAside",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "Buttons",
+            "repeat": true,
+            "fields": {
+              "disabled": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Disabled",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "firstcharacters": {
+                "type": "Text",
+                "config": {
+                  "label": "FirstCharacters",
+                  "placeholder": "The characters that come before the styled character"
+                }
+              },
+              "styled_character": {
+                "type": "Text",
+                "config": {
+                  "label": "Styled Character",
+                  "placeholder": "The styled character"
+                }
+              },
+              "last_characters": {
+                "type": "Text",
+                "config": {
+                  "label": "Last Characters",
+                  "placeholder": "The characters that come after the styled character"
+                }
+              },
+              "buttonroute": {
+                "type": "Link",
+                "config": {
+                  "label": "ButtonRoute",
+                  "select": "document",
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "cta_description": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Description",
+            "placeholder": "The description for the call to action section"
+          }
+        },
+        "slice_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Slice Margin Bottom",
+            "placeholder": "The bottom margin for the slice in rem units"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

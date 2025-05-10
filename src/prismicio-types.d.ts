@@ -5,6 +5,7 @@ import type * as prismic from '@prismicio/client';
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type EvidenceDocumentDataSlicesSlice =
+	| ButtonsAsideSlice
 	| BuildersGridSlice
 	| ImageSectionSlice
 	| EvidenceTitleSlice
@@ -72,7 +73,11 @@ export type EvidenceDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-type HomeDocumentDataSlicesSlice = ProjectListSlice | EvidenceGridSlice | TextSectionSlice;
+type HomeDocumentDataSlicesSlice =
+	| ButtonsAsideSlice
+	| ProjectListSlice
+	| EvidenceGridSlice
+	| TextSectionSlice;
 
 /**
  * Content for home documents
@@ -234,6 +239,124 @@ type BuildersGridSliceVariation = BuildersGridSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BuildersGridSlice = prismic.SharedSlice<'builders_grid', BuildersGridSliceVariation>;
+
+/**
+ * Item in *ButtonsAside → Default → Primary → Buttons*
+ */
+export interface ButtonsAsideSliceDefaultPrimaryButtonsItem {
+	/**
+	 * Disabled field in *ButtonsAside → Default → Primary → Buttons*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[].disabled
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	disabled: prismic.BooleanField;
+
+	/**
+	 * FirstCharacters field in *ButtonsAside → Default → Primary → Buttons*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The characters that come before the styled character
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[].firstcharacters
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	firstcharacters: prismic.KeyTextField;
+
+	/**
+	 * Styled Character field in *ButtonsAside → Default → Primary → Buttons*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The styled character
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[].styled_character
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	styled_character: prismic.KeyTextField;
+
+	/**
+	 * Last Characters field in *ButtonsAside → Default → Primary → Buttons*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The characters that come after the styled character
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[].last_characters
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	last_characters: prismic.KeyTextField;
+
+	/**
+	 * ButtonRoute field in *ButtonsAside → Default → Primary → Buttons*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[].buttonroute
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	buttonroute: prismic.ContentRelationshipField;
+}
+
+/**
+ * Primary content in *ButtonsAside → Default → Primary*
+ */
+export interface ButtonsAsideSliceDefaultPrimary {
+	/**
+	 * Buttons field in *ButtonsAside → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: buttons_aside.default.primary.buttons[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	buttons: prismic.GroupField<Simplify<ButtonsAsideSliceDefaultPrimaryButtonsItem>>;
+
+	/**
+	 * CTA Description field in *ButtonsAside → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The description for the call to action section
+	 * - **API ID Path**: buttons_aside.default.primary.cta_description
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	cta_description: prismic.KeyTextField;
+
+	/**
+	 * Slice Margin Bottom field in *ButtonsAside → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin for the slice in rem units
+	 * - **API ID Path**: buttons_aside.default.primary.slice_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	slice_margin_bottom: prismic.NumberField;
+}
+
+/**
+ * Default variation for ButtonsAside Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonsAsideSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ButtonsAsideSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ButtonsAside*
+ */
+type ButtonsAsideSliceVariation = ButtonsAsideSliceDefault;
+
+/**
+ * ButtonsAside Shared Slice
+ *
+ * - **API ID**: `buttons_aside`
+ * - **Description**: ButtonsAside
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonsAsideSlice = prismic.SharedSlice<'buttons_aside', ButtonsAsideSliceVariation>;
 
 /**
  * Item in *EvidenceGrid → Evidence Grid → Primary → Evidences*
@@ -718,6 +841,11 @@ declare module '@prismicio/client' {
 			BuildersGridSliceDefaultPrimary,
 			BuildersGridSliceVariation,
 			BuildersGridSliceDefault,
+			ButtonsAsideSlice,
+			ButtonsAsideSliceDefaultPrimaryButtonsItem,
+			ButtonsAsideSliceDefaultPrimary,
+			ButtonsAsideSliceVariation,
+			ButtonsAsideSliceDefault,
 			EvidenceGridSlice,
 			EvidenceGridSliceDefaultPrimaryEvidencesItem,
 			EvidenceGridSliceDefaultPrimary,
