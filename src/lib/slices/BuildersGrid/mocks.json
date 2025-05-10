@@ -2,7 +2,61 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Discover"
+						}
+					}
+				]
+			},
+			"builders": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "bet",
+									"type": "Text"
+								}
+							],
+							[
+								"links",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ipsum ex aliqua velit dolore sunt in officia quis eiusmod. Lorem qui consectetur occaecat esse ad ipsum consectetur proident duis veniam enim dolor consequat occaecat aliquip."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"slice_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "57",
+				"type": "Number"
+			},
+			"title_margin_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "30",
+				"type": "Number"
+			}
+		},
 		"items": []
 	}
 ]

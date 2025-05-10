@@ -1,16 +1,67 @@
 {
-	"id": "builders_grid",
-	"type": "SharedSlice",
-	"name": "BuildersGrid",
-	"description": "BuildersGrid",
-	"variations": [
-		{
-			"id": "default",
-			"name": "Default",
-			"docURL": "...",
-			"version": "initial",
-			"description": "Default",
-			"imageUrl": ""
-		}
-	]
+  "id": "builders_grid",
+  "type": "SharedSlice",
+  "name": "BuildersGrid",
+  "description": "BuildersGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "The title of the Builders Grid",
+            "allowTargetBlank": false,
+            "multi": "heading2,heading3,strong,em"
+          }
+        },
+        "title_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Title Margin Bottom",
+            "placeholder": "The bottom margin in rem after the title"
+          }
+        },
+        "builders": {
+          "type": "Group",
+          "config": {
+            "label": "Builders",
+            "repeat": true,
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": "The name of the builder"
+                }
+              },
+              "links": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Links",
+                  "placeholder": "The links of the builder",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "slice_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Slice Margin Bottom",
+            "placeholder": "The bottom margin for the slice in rem units"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
 }

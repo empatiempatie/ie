@@ -4,7 +4,11 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type EvidenceDocumentDataSlicesSlice = ImageSectionSlice | EvidenceTitleSlice | TextSectionSlice;
+type EvidenceDocumentDataSlicesSlice =
+	| BuildersGridSlice
+	| ImageSectionSlice
+	| EvidenceTitleSlice
+	| TextSectionSlice;
 
 /**
  * Content for evidence documents
@@ -135,6 +139,76 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 export type AllDocumentTypes = EvidenceDocument | HomeDocument;
 
 /**
+ * Item in *BuildersGrid → Default → Primary → Builders*
+ */
+export interface BuildersGridSliceDefaultPrimaryBuildersItem {
+	/**
+	 * Name field in *BuildersGrid → Default → Primary → Builders*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: The name of the builder
+	 * - **API ID Path**: builders_grid.default.primary.builders[].name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	name: prismic.KeyTextField;
+
+	/**
+	 * Links field in *BuildersGrid → Default → Primary → Builders*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: The links of the builder
+	 * - **API ID Path**: builders_grid.default.primary.builders[].links
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	links: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *BuildersGrid → Default → Primary*
+ */
+export interface BuildersGridSliceDefaultPrimary {
+	/**
+	 * Title field in *BuildersGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: The title of the Builders Grid
+	 * - **API ID Path**: builders_grid.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Title Margin Bottom field in *BuildersGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin in rem after the title
+	 * - **API ID Path**: builders_grid.default.primary.title_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	title_margin_bottom: prismic.NumberField;
+
+	/**
+	 * Builders field in *BuildersGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: builders_grid.default.primary.builders[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	builders: prismic.GroupField<Simplify<BuildersGridSliceDefaultPrimaryBuildersItem>>;
+
+	/**
+	 * Slice Margin Bottom field in *BuildersGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin for the slice in rem units
+	 * - **API ID Path**: builders_grid.default.primary.slice_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	slice_margin_bottom: prismic.NumberField;
+}
+
+/**
  * Default variation for BuildersGrid Slice
  *
  * - **API ID**: `default`
@@ -143,7 +217,7 @@ export type AllDocumentTypes = EvidenceDocument | HomeDocument;
  */
 export type BuildersGridSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Record<string, never>,
+	Simplify<BuildersGridSliceDefaultPrimary>,
 	never
 >;
 
@@ -640,6 +714,8 @@ declare module '@prismicio/client' {
 			HomeDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			BuildersGridSlice,
+			BuildersGridSliceDefaultPrimaryBuildersItem,
+			BuildersGridSliceDefaultPrimary,
 			BuildersGridSliceVariation,
 			BuildersGridSliceDefault,
 			EvidenceGridSlice,
