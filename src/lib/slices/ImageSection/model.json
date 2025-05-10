@@ -1,0 +1,34 @@
+{
+  "id": "image_section",
+  "type": "SharedSlice",
+  "name": "ImageSection",
+  "description": "ImageSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "evidence_image": {
+          "type": "Image",
+          "config": {
+            "label": "Evidence Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "slice_margin_bottom": {
+          "type": "Number",
+          "config": {
+            "label": "Slice Margin Bottom",
+            "placeholder": "The bottom margin for the slice in rem units"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

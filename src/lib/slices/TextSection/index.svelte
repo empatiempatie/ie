@@ -5,8 +5,8 @@
 
 	export let slice: Content.TextSectionSlice;
 
-	console.log('Slice data:', slice);
-	console.log('Slice primary data:', PrismicRichText);
+	// console.log('Slice data:', slice);
+	// console.log('Slice primary data:', PrismicRichText);
 </script>
 
 <section

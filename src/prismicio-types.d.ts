@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type EvidenceDocumentDataSlicesSlice = EvidenceTitleSlice | TextSectionSlice;
+type EvidenceDocumentDataSlicesSlice = ImageSectionSlice | EvidenceTitleSlice | TextSectionSlice;
 
 /**
  * Content for evidence documents
@@ -133,6 +133,33 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 >;
 
 export type AllDocumentTypes = EvidenceDocument | HomeDocument;
+
+/**
+ * Default variation for BuildersGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuildersGridSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *BuildersGrid*
+ */
+type BuildersGridSliceVariation = BuildersGridSliceDefault;
+
+/**
+ * BuildersGrid Shared Slice
+ *
+ * - **API ID**: `builders_grid`
+ * - **Description**: BuildersGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BuildersGridSlice = prismic.SharedSlice<'builders_grid', BuildersGridSliceVariation>;
 
 /**
  * Item in *EvidenceGrid → Evidence Grid → Primary → Evidences*
@@ -354,6 +381,58 @@ type EvidenceTitleSliceVariation = EvidenceTitleSliceDefault;
 export type EvidenceTitleSlice = prismic.SharedSlice<'evidence_title', EvidenceTitleSliceVariation>;
 
 /**
+ * Primary content in *ImageSection → Default → Primary*
+ */
+export interface ImageSectionSliceDefaultPrimary {
+	/**
+	 * Evidence Image field in *ImageSection → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: image_section.default.primary.evidence_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	evidence_image: prismic.ImageField<never>;
+
+	/**
+	 * Slice Margin Bottom field in *ImageSection → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: The bottom margin for the slice in rem units
+	 * - **API ID Path**: image_section.default.primary.slice_margin_bottom
+	 * - **Documentation**: https://prismic.io/docs/field#number
+	 */
+	slice_margin_bottom: prismic.NumberField;
+}
+
+/**
+ * Default variation for ImageSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSectionSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ImageSectionSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ImageSection*
+ */
+type ImageSectionSliceVariation = ImageSectionSliceDefault;
+
+/**
+ * ImageSection Shared Slice
+ *
+ * - **API ID**: `image_section`
+ * - **Description**: ImageSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSectionSlice = prismic.SharedSlice<'image_section', ImageSectionSliceVariation>;
+
+/**
  * Item in *ProjectList → Default → Primary → Project List*
  */
 export interface ProjectListSliceDefaultPrimaryProjectListItem {
@@ -560,6 +639,9 @@ declare module '@prismicio/client' {
 			HomeDocumentData,
 			HomeDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			BuildersGridSlice,
+			BuildersGridSliceVariation,
+			BuildersGridSliceDefault,
 			EvidenceGridSlice,
 			EvidenceGridSliceDefaultPrimaryEvidencesItem,
 			EvidenceGridSliceDefaultPrimary,
@@ -569,6 +651,10 @@ declare module '@prismicio/client' {
 			EvidenceTitleSliceDefaultPrimary,
 			EvidenceTitleSliceVariation,
 			EvidenceTitleSliceDefault,
+			ImageSectionSlice,
+			ImageSectionSliceDefaultPrimary,
+			ImageSectionSliceVariation,
+			ImageSectionSliceDefault,
 			ProjectListSlice,
 			ProjectListSliceDefaultPrimaryProjectListItem,
 			ProjectListSliceDefaultPrimary,

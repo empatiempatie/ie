@@ -6,7 +6,7 @@
 	export let data;
 	const { page } = data;
 
-	console.log('Page data:', page);
+	// console.log('Page data:', page);
 </script>
 
 <Body style="background-color: #ffffff" />
