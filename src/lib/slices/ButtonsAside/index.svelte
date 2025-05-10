@@ -32,6 +32,7 @@
 <style>
 	.aside-container {
 		margin: 0 0 var(--aside-margin, 0) 0;
+		width: 100vw !important;
 	}
 
 	.buttons-container {
@@ -48,7 +49,9 @@
 		text-align: center;
 	}
 
-	aside {
-		padding: 0 0.7em;
+	@media (max-width: 1024px) {
+		.aside-container {
+			width: 100%;
+		}
 	}
 </style>
