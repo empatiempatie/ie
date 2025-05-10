@@ -13,7 +13,7 @@
 	class="evidence-section"
 >
 	<FlashingText
-		tag="h2"
+		tag={slice.primary.title[0]?.type}
 		--margin="0 0 {slice.primary.title_margin_bottom}rem 0"
 		content={slice.primary.title}
 		flashInterval={slice.primary.flash_interval}

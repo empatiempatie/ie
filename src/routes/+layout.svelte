@@ -81,7 +81,6 @@
 	}
 
 	.cta-description {
-		/* font-size: 1.1rem; */
 		font-size: 0.9rem;
 		font-weight: 400;
 		text-align: center;
@@ -95,7 +94,6 @@
 	}
 
 	footer {
-		/* font-size: 1.1rem; */
 		font-size: 0.9rem;
 		display: grid;
 		margin: 0 0 0.5rem 0;
@@ -105,7 +103,6 @@
 	}
 
 	footer img {
-		/* width: 1.7rem; */
 		width: 1.5rem;
 		height: auto;
 		margin: 0;
@@ -113,7 +110,6 @@
 
 	.footer-left,
 	.footer-right {
-		/* font-size: 1rem; */
 		font-size: 0.8rem;
 		font-weight: 400;
 	}

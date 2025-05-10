@@ -5,7 +5,7 @@
 	export let slice: Content.EvidenceTitleSlice;
 </script>
 
-<span
+<header
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 	class="evidence-title-container"
@@ -14,22 +14,28 @@
 		--title-margin-bottom: {slice.primary.title_margin_bottom}rem;
 	"
 >
-	<PrismicRichText field={slice.primary.evidence_title} />
-	<PrismicRichText field={slice.primary.evidence_date} />
-</span>
+	<div>
+		<PrismicRichText field={slice.primary.evidence_title} />
+	</div>
+	<time><PrismicRichText field={slice.primary.evidence_date} /></time>
+</header>
 
 <style>
 	.evidence-title-container {
 		margin: 0 0 var(--slice-margin-bottom, 0) 0;
 	}
 
-	.evidence-title-container :global(h3) {
-		font-size: 2.5rem;
-		letter-spacing: -0.04em;
+	.evidence-title-container :global(h1) {
 		margin: 0 0 var(--title-margin-bottom, 0) 0;
+		font-style: italic;
+		font-family: 'Inter';
+		font-size: 2.5rem;
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: -0.07em;
 	}
 
-	/* .evidence-title-container :global(p) {
+	/* .evidence-date :global(p) {
 		font-size: 1.6rem;
 		font-weight: 300;
 	} */

@@ -29,6 +29,7 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"slice-machine-ui": "^2.15.2",
 		"svelte": "^5.0.0",
+		"svelte-body": "^2.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.20.0",

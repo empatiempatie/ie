@@ -3,7 +3,20 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	interface Props {
-		tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+		tag:
+			| 'paragraph'
+			| 'image'
+			| 'embed'
+			| 'heading1'
+			| 'heading2'
+			| 'heading3'
+			| 'heading4'
+			| 'heading5'
+			| 'heading6'
+			| 'preformatted'
+			| 'list-item'
+			| 'o-list-item'
+			| undefined;
 		content: string | RichTextField;
 		flashColor?: string;
 		flashInterval?: number | NumberField;
@@ -13,7 +26,7 @@
 	}
 
 	let {
-		tag,
+		tag = 'heading1',
 		content,
 		flashColor = '#E35B52',
 		flashInterval = 150,
@@ -39,6 +52,24 @@
 		'■□▢▣▤▥▦▧▨▩▪▫▬▭▮▯▰▱▲△▴▵▶▷▸▹►▻▼▽▾▿◀◁◂◃◄◅◆◇◈◉◊○●◐◑◒◓◔◕◖◗',
 		'¹²³ªº°¡¿ßÐðÞþµ¶·¸º¨˙`´ˆ¯˘˚˜¯'
 	].join('');
+
+	function getHtmlTag(prismicTag: Props['tag']): string {
+        switch (prismicTag) {
+            case 'heading1': return 'h1';
+            case 'heading2': return 'h2';
+            case 'heading3': return 'h3';
+            case 'heading4': return 'h4';
+            case 'heading5': return 'h5';
+            case 'heading6': return 'h6';
+            case 'paragraph': return 'p';
+            case 'list-item': return 'li';
+            case 'o-list-item': return 'li';
+            case 'preformatted': return 'pre';
+            default: return 'div';
+        }
+    }
+
+	const htmlTag = $derived(getHtmlTag(tag));
 
 	function getRandomGlitchChar() {
 		return glitchChars[Math.floor(Math.random() * glitchChars.length)];
@@ -133,7 +164,7 @@
 	});
 </script>
 
-<svelte:element this={tag} bind:this={elementRef} class="flashing-text">
+<svelte:element this={htmlTag} bind:this={elementRef} class="flashing-text">
 	{@html processedContent}
 	<!-- <PrismicRichText field={processedContent} /> -->
 </svelte:element>

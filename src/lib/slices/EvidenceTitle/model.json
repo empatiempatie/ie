@@ -18,7 +18,7 @@
             "label": "Evidence Title",
             "placeholder": "The title of the Evidence",
             "allowTargetBlank": false,
-            "multi": "heading3"
+            "multi": "heading1"
           }
         },
         "title_margin_bottom": {

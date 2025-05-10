@@ -18,7 +18,7 @@
             "label": "Title",
             "placeholder": "The title of the section.",
             "allowTargetBlank": false,
-            "multi": "heading2,heading5"
+            "multi": "heading2,heading1,heading3"
           }
         },
         "flash_interval": {
