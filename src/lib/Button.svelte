@@ -55,7 +55,6 @@
 		padding: 0.8em 0.5em;
 		cursor: pointer;
 		border: none;
-		min-width: 14rem;
 		justify-content: center;
 	}
 

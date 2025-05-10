@@ -32,7 +32,7 @@
 <style>
 	.aside-container {
 		margin: 0 0 var(--aside-margin, 0) 0;
-		width: 100vw !important;
+		width: 100vw;
 	}
 
 	.buttons-container {
