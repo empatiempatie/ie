@@ -42,7 +42,7 @@
 		font-size: 1.4rem;
 		line-height: 1.3;
 		letter-spacing: -0.02em;
-		color: #ffffff;
+		color: #fafafa;
 		margin: 0;
 		word-break: keep-all;
 		white-space: normal;
@@ -51,7 +51,7 @@
 
 	button {
 		font-family: 'Inter';
-		background-color: #000000;
+		background-color: #0b0b0b;
 		padding: 0.8em 0.5em;
 		cursor: pointer;
 		border: none;

@@ -9,7 +9,7 @@
 	// console.log('Page data:', page);
 </script>
 
-<Body style="background-color: #ffffff" />
+<Body style="background-color: #fafafa" />
 <div class="page-content">
 	<SliceZone slices={data.page.data.slices} {components} />
 </div>
