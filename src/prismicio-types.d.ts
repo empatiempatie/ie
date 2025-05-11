@@ -73,6 +73,70 @@ export type EvidenceDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
+type FormDocumentDataSlicesSlice = TextSectionSlice;
+
+/**
+ * Content for form documents
+ */
+interface FormDocumentData {
+	/**
+	 * Slice Zone field in *form*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<FormDocumentDataSlicesSlice> /**
+	 * Meta Title field in *form*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: form.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *form*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: form.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *form*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: form.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * form document from Prismic
+ *
+ * - **API ID**: `form`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FormDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<FormDocumentData>,
+	'form',
+	Lang
+>;
+
 type HomeDocumentDataSlicesSlice =
 	| ButtonsAsideSlice
 	| ProjectListSlice
@@ -141,7 +205,7 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = EvidenceDocument | HomeDocument;
+export type AllDocumentTypes = EvidenceDocument | FormDocument | HomeDocument;
 
 /**
  * Item in *BuildersGrid → Default → Primary → Builders*
@@ -832,6 +896,9 @@ declare module '@prismicio/client' {
 			EvidenceDocument,
 			EvidenceDocumentData,
 			EvidenceDocumentDataSlicesSlice,
+			FormDocument,
+			FormDocumentData,
+			FormDocumentDataSlicesSlice,
 			HomeDocument,
 			HomeDocumentData,
 			HomeDocumentDataSlicesSlice,

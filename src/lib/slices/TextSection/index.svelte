@@ -4,16 +4,13 @@
 	import FlashingText from '$lib/FlashingText.svelte';
 
 	export let slice: Content.TextSectionSlice;
-
-	// console.log('Slice data:', slice);
-	// console.log('Slice primary data:', PrismicRichText);
 </script>
 
 <section
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 	style="--section-margin: {slice.primary.slice_margin_bottom}rem"
-	class="text-section-container"
+	class="text-section"
 >
 	<FlashingText
 		tag={slice.primary.title[0]?.type}
@@ -30,7 +27,7 @@
 </section>
 
 <style>
-	.text-section-container {
+	.text-section {
 		margin: 0 0 var(--section-margin, 0) 0;
 	}
 </style>
