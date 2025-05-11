@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
-	import FlashingText from '$lib/FlashingText.svelte';
-	import EvidenceGrid from '$lib/EvidenceGrid.svelte';
+	import FlashingText from '$lib/components/FlashingText.svelte';
+	import EvidenceGrid from '$lib/components/EvidenceGrid.svelte';
 
 	export let slice: Content.EvidenceGridSlice;
 </script>

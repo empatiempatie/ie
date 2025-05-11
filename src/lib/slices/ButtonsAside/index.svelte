@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Button from '$lib/Button.svelte';
-	import type { Content } from '@prismicio/client';
 	import { PrismicLink } from '@prismicio/svelte';
+	import type { Content } from '@prismicio/client';
+	import Button from '$lib/components/Button.svelte';
 
 	export let slice: Content.ButtonsAsideSlice;
 </script>

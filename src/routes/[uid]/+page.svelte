@@ -3,17 +3,17 @@
 	import { components } from '$lib/slices';
 	import { SliceZone } from '@prismicio/svelte';
 
-	let { data } = $props();
+	const { data } = $props();
 </script>
 
 <Body style="background-color: #fafafa" />
 
-<div class="wrapper">
+<div class="evidence-page-wrapper">
 	<SliceZone slices={data.page.data.slices} {components} />
 </div>
 
 <style>
-	.wrapper :global(h2) {
+	.evidence-page-wrapper :global(h2) {
 		font-size: 1.4rem;
 	}
 </style>

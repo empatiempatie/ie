@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
 	import { PrismicRichText } from '@prismicio/svelte';
-	import FlashingText from '$lib/FlashingText.svelte';
+	import FlashingText from '$lib/components/FlashingText.svelte';
 
 	export let slice: Content.TextSectionSlice;
 </script>
