@@ -66,23 +66,44 @@
 
 		<form method="POST" use:enhance={handleSubmit} aria-live="polite">
 			<div class="form-field">
-				<label for="name"><i>Name:</i></label>
-				<input id="name" name="name" type="text" required />
+				<!-- <label for="name"><i>Name:</i></label> -->
+				<input aria-label="name" placeholder="Name:" id="name" name="name" type="text" required />
 			</div>
 
 			<div class="form-field">
-				<label for="email"><i>Email:</i></label>
-				<input id="email" name="email" type="email" required />
+				<!-- <label for="email"><i>Email:</i></label> -->
+				<input
+					aria-label="email"
+					placeholder="Email:"
+					id="email"
+					name="email"
+					type="email"
+					required
+				/>
 			</div>
 
 			<div class="form-field">
-				<label for="evidence"><i>Evidence:</i></label>
-				<input id="evidence" name="evidence" type="text" required />
+				<!-- <label for="evidence"><i>Evidence:</i></label> -->
+				<input
+					aria-label="evidence"
+					placeholder="Evidence:"
+					id="evidence"
+					name="evidence"
+					type="text"
+					required
+				/>
 			</div>
 
 			<div class="form-field">
-				<label for="message"><i>Details:</i></label>
-				<textarea id="message" name="message" rows="3" required></textarea>
+				<!-- <label for="details"><i>Details:</i></label> -->
+				<textarea
+					aria-label="details"
+					placeholder="Details:"
+					id="details"
+					name="details"
+					rows="3"
+					required
+				></textarea>
 			</div>
 
 			<div class="button-container">
@@ -119,12 +140,12 @@
 
 <style>
 	h1 {
-		margin: 0 0 0.7rem 0;
+		margin: 0 0 2rem 0;
 	}
 
-	label {
+	/* label {
 		display: block;
-	}
+	} */
 
 	textarea {
 		resize: vertical;
@@ -134,14 +155,38 @@
 	textarea,
 	input {
 		box-sizing: border-box;
-		display: block;
-		padding: 0.4rem;
+		padding: 0.5rem;
 		width: 100%;
 		font-family: 'Inter';
-		font-size: 1rem;
-		border: 1px solid #0b0b0b;
+		font-weight: 300;
+		color: #0b0b0b;
+		font-size: 1.4rem;
+		line-height: 1.3;
+		letter-spacing: -0.02em;
+		border: none;
+		border-bottom: 1px solid #0b0b0b;
 		border-radius: 0;
 		background-color: #fafafa;
+	}
+
+	input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 30px #fafafa inset;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		font-family: 'Inter';
+		font-style: italic;
+		font-weight: 300;
+		font-size: 1.4rem;
+		line-height: 1.3;
+		letter-spacing: -0.02em;
+		margin: 0;
+		padding: 0;
+		color: #0b0b0b;
+		word-break: keep-all;
+		white-space: normal;
+		hyphens: manual;
 	}
 
 	input:focus,
@@ -182,7 +227,7 @@
 	}
 
 	.form-field {
-		margin-bottom: 0.7rem;
+		margin-bottom: 1rem;
 	}
 
 	.button-container {
@@ -195,7 +240,8 @@
 	}
 
 	.success-message {
-		padding: 1.5rem;
+		padding: 1rem;
+		margin: 12rem 0 0 0;
 		background-color: #fafafa;
 		border: 1px solid #0b0b0b;
 		text-align: center;
