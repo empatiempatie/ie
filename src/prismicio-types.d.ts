@@ -4,6 +4,70 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ConspireDocumentDataSlicesSlice = never;
+
+/**
+ * Content for conspire documents
+ */
+interface ConspireDocumentData {
+	/**
+	 * Slice Zone field in *conspire*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: conspire.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<ConspireDocumentDataSlicesSlice> /**
+	 * Meta Title field in *conspire*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: conspire.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *conspire*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: conspire.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *conspire*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: conspire.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * conspire document from Prismic
+ *
+ * - **API ID**: `conspire`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ConspireDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<ConspireDocumentData>,
+	'conspire',
+	Lang
+>;
+
 type EvidenceDocumentDataSlicesSlice =
 	| ButtonsAsideSlice
 	| BuildersGridSlice
@@ -70,70 +134,6 @@ interface EvidenceDocumentData {
 export type EvidenceDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
 	Simplify<EvidenceDocumentData>,
 	'evidence',
-	Lang
->;
-
-type FormDocumentDataSlicesSlice = TextSectionSlice;
-
-/**
- * Content for form documents
- */
-interface FormDocumentData {
-	/**
-	 * Slice Zone field in *form*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: form.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#slices
-	 */
-	slices: prismic.SliceZone<FormDocumentDataSlicesSlice> /**
-	 * Meta Title field in *form*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: form.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */;
-	meta_title: prismic.KeyTextField;
-
-	/**
-	 * Meta Description field in *form*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: form.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	meta_description: prismic.KeyTextField;
-
-	/**
-	 * Meta Image field in *form*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: form.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#image
-	 */
-	meta_image: prismic.ImageField<never>;
-}
-
-/**
- * form document from Prismic
- *
- * - **API ID**: `form`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type FormDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
-	Simplify<FormDocumentData>,
-	'form',
 	Lang
 >;
 
@@ -205,7 +205,7 @@ export type HomeDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = EvidenceDocument | FormDocument | HomeDocument;
+export type AllDocumentTypes = ConspireDocument | EvidenceDocument | HomeDocument;
 
 /**
  * Item in *BuildersGrid → Default → Primary → Builders*
@@ -893,12 +893,12 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			ConspireDocument,
+			ConspireDocumentData,
+			ConspireDocumentDataSlicesSlice,
 			EvidenceDocument,
 			EvidenceDocumentData,
 			EvidenceDocumentDataSlicesSlice,
-			FormDocument,
-			FormDocumentData,
-			FormDocumentDataSlicesSlice,
 			HomeDocument,
 			HomeDocumentData,
 			HomeDocumentDataSlicesSlice,

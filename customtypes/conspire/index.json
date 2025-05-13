@@ -1,7 +1,7 @@
 {
 	"format": "page",
-	"id": "form",
-	"label": "form",
+	"id": "conspire",
+	"label": "conspire",
 	"repeatable": false,
 	"status": true,
 	"json": {
@@ -10,11 +10,7 @@
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
-					"choices": {
-						"text_section": {
-							"type": "SharedSlice"
-						}
-					}
+					"choices": {}
 				}
 			}
 		},

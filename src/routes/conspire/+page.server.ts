@@ -6,7 +6,7 @@ import nodemailer from 'nodemailer';
 
 export async function load({ params, fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
-	const page = await client.getSingle('form');
+	const page = await client.getSingle('conspire');
 
 	return {
 		page

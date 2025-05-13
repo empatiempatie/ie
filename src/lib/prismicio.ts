@@ -32,8 +32,8 @@ const routes: prismic.ClientConfig['routes'] = [
 		path: '/:uid'
 	},
 	{
-		type: 'form',
-		path: '/form'
+		type: 'conspire',
+		path: '/conspire'
 	}
 ];
 
