@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PrismicLink } from '@prismicio/svelte';
 	import type { Content } from '@prismicio/client';
 	import Button from '$lib/components/Button.svelte';
 
@@ -21,7 +20,6 @@
 				secondHalf={item.last_characters}
 				route={item.buttonroute}
 			/>
-			<PrismicLink field={item.buttonroute} />
 		{/each}
 	</div>
 	{#if slice.primary.cta_description}
@@ -31,7 +29,7 @@
 
 <style>
 	.aside-container {
-		margin: 0 0 var(--aside-margin, 0) 0;
+		margin: 0 0 var(--aside-margin, 0) -0.7rem;
 		width: 100vw;
 	}
 
@@ -52,6 +50,7 @@
 	@media (max-width: 1024px) {
 		.aside-container {
 			width: 100%;
+			margin: 0 0 var(--aside-margin, 0) 0;
 		}
 	}
 </style>
