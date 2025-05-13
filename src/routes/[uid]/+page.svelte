@@ -1,21 +1,19 @@
 <script lang="ts">
-	import { SliceZone } from '@prismicio/svelte';
-	import { components } from '$lib/slices'
 	import { Body } from 'svelte-body';
+	import { components } from '$lib/slices';
+	import { SliceZone } from '@prismicio/svelte';
 
-	export let data;
-	const { page } = data;
-
-	// console.log('Page data:', page);
+	const { data } = $props();
 </script>
 
 <Body style="background-color: #fafafa" />
-<div class="page-content">
+
+<div class="evidence-page-wrapper">
 	<SliceZone slices={data.page.data.slices} {components} />
 </div>
 
 <style>
-	.page-content :global(h2) {
+	.evidence-page-wrapper :global(h2) {
 		font-size: 1.4rem;
 	}
 </style>

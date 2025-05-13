@@ -23,6 +23,7 @@
 
 <PrismicLink field={route}>
 	<button
+		type="button"
 		{disabled}
 		onmouseenter={() => !disabled && (isHovered = true)}
 		onmouseleave={() => !disabled && (isHovered = false)}
@@ -36,8 +37,12 @@
 </PrismicLink>
 
 <style>
-	button,
 	span {
+		font-family: 'Inknut Antiqua';
+	}
+
+	span,
+	button {
 		font-weight: 300;
 		font-size: 1.4rem;
 		line-height: 1.3;
@@ -63,13 +68,9 @@
 		cursor: not-allowed;
 	}
 
-	span {
-		font-family: 'Inknut Antiqua';
-	}
-
 	@media (max-width: 768px) {
-		button,
-		span {
+		span,
+		button {
 			font-size: 1rem;
 		}
 	}

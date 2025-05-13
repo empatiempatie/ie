@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { titles, footerData } from '$lib/utils/content';
-	import Button from '$lib/Button.svelte';
-	import logo from '$lib/images/ie-logo.svg';
 	import '../app.css';
+	import logo from '$lib/images/ie-logo.svg';
+	import { titles, footerData } from '$lib/utils/content';
 
 	let { children } = $props();
 </script>

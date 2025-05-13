@@ -39,7 +39,8 @@ h3 {
 }
 
 p,
-li {
+li,
+label {
 	font-family: 'Inter';
 	font-weight: 300;
 	font-size: 1.4rem;

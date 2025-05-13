@@ -25,23 +25,18 @@
 	@keyframes microGlitch {
 		0% {
 			transform: translate(0);
-			/* color: #e35b52; */
 		}
 		25% {
 			transform: translate(-1px, 0.5px);
-			/* color: #e35b52; */
 		}
 		50% {
 			transform: translate(0.5px, -0.5px);
-			/* color: #0b0b0b; */
 		}
 		75% {
 			transform: translate(-0.5px, 0);
-			/* color: #0b0b0b; */
 		}
 		100% {
 			transform: translate(0);
-			/* color: #e35b52; */
 		}
 	}
 
@@ -57,7 +52,6 @@
 	}
 
 	.evidence-item :global(a) {
-		/* margin: 0 0 1.5rem 0; */
 		color: inherit;
 		text-decoration: none;
 		position: relative;
