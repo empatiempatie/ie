@@ -48,7 +48,7 @@
 </script>
 
 <Body style="background-color: #fafafa" />
-<SliceZone slices={data.page.data.slices} {components} />
+<!-- <SliceZone slices={data.page.data.slices} {components} /> -->
 
 <section>
 	<h1>Conspire with us</h1>
@@ -126,9 +126,9 @@
 					onmouseenter={() => !isSubmitting && (visitHovered = true)}
 					onmouseleave={() => !isSubmitting && (visitHovered = false)}
 					class:disabled={isSubmitting}
-					aria-label="Visit Website"
+					aria-label="Go Back"
 				>
-					Visit Websit<span>e</span>
+					G<span>o</span> Back
 					{#if visitHovered}
 						<span>→</span>
 					{/if}
@@ -160,7 +160,7 @@
 		font-family: 'Inter';
 		font-weight: 300;
 		color: #0b0b0b;
-		font-size: 1.4rem;
+		font-size: 0.9rem;
 		line-height: 1.3;
 		letter-spacing: -0.02em;
 		border: none;
@@ -176,9 +176,8 @@
 	input::placeholder,
 	textarea::placeholder {
 		font-family: 'Inter';
-		font-style: italic;
 		font-weight: 300;
-		font-size: 1.4rem;
+		font-size: 0.9rem;
 		line-height: 1.3;
 		letter-spacing: -0.02em;
 		margin: 0;
