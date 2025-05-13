@@ -20,11 +20,11 @@ export const actions = {
 			const formData = await request.formData();
 			const name = formData.get('name')?.toString();
 			const email = formData.get('email')?.toString();
-			const topic = formData.get('topic')?.toString();
+			const evidence = formData.get('evidence')?.toString();
 			const message = formData.get('message')?.toString();
 
 			// Validate required fields
-			if (!name || !email || !topic || !message) {
+			if (!name || !email || !evidence || !message) {
 				return fail(400, {
 					success: false,
 					error: 'All fields are required'
@@ -39,23 +39,41 @@ export const actions = {
 				auth: EMAIL_CONFIG.auth
 			});
 
-			await transporter.verify(); // Verify connection before sending
+			// Send email to the business
+			await transporter.verify();
 			const mailOptions = {
 				from: `"Contact Form" <${EMAIL_CONFIG.auth.user}>`,
 				to: env.BUSINESS_EMAIL || EMAIL_CONFIG.auth.user,
 				replyTo: email,
-				subject: `Contact Form: ${topic}`,
-				text: `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\nMessage: ${message}`,
+				subject: `Contact Form: ${evidence}`,
+				text: `Name: ${name}\nEmail: ${email}\nEvidence: ${evidence}\nMessage: ${message}`,
 				html: `
 					<h3>New Contact Form Submission</h3>
 					<p><strong>Name:</strong> ${name}</p>
 					<p><strong>Email:</strong> ${email}</p>
-					<p><strong>Topic:</strong> ${topic}</p>
+					<p><strong>Evidence:</strong> ${evidence}</p>
 					<p><strong>Message:</strong></p>
 					<p>${message.replace(/\n/g, '<br>')}</p>
 				`
 			};
-			const info = await transporter.sendMail(mailOptions);
+			await transporter.sendMail(mailOptions);
+
+			// Send confirmation email to the user
+			await transporter.verify();
+			const userMailOptions = {
+				from: `"i.e., Studio" <${EMAIL_CONFIG.auth.user}>`,
+				to: email,
+				subject: "We've received your message",
+				text: `Hello ${name},\n\nThank you for reaching out! We've received your message about "${evidence}".\n\nWe'll get back to you as soon as possible.\n\nBest regards,\ni.e.,`,
+				html: `
+						<h3>Thank you for reaching out!</h3>
+						<p>Hello ${name},</p>
+						<p>We've received your message about <strong>"${evidence}"</strong>.</p>
+						<p>We'll get back to you as soon as possible.</p>
+						<p>Best regards,<br>The i.e.,</p>
+				`
+			};
+			await transporter.sendMail(userMailOptions);
 
 			return {
 				success: true,
