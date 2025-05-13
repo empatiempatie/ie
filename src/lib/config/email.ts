@@ -1,11 +1,11 @@
-import { env } from '$env/dynamic/private';
+import { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS } from '$env/static/private';
 
 export const EMAIL_CONFIG = {
 	// SMTP Configuration for direct use with Nodemailer
-	host: env.EMAIL_HOST,
-	port: parseInt(env.EMAIL_PORT || '587', 10),
+	host: EMAIL_HOST,
+	port: parseInt(EMAIL_PORT || '587', 10),
 	auth: {
-		user: env.EMAIL_USER,
-		pass: env.EMAIL_PASS
+		user: EMAIL_USER,
+		pass: EMAIL_PASS
 	}
 };
