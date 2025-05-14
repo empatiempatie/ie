@@ -4,12 +4,38 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *conspire → Conspire Gallery*
+ */
+export interface ConspireDocumentDataConspireGalleryItem {
+	/**
+	 * Image field in *conspire → Conspire Gallery*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: conspire.conspire_gallery[].image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+}
+
 type ConspireDocumentDataSlicesSlice = never;
 
 /**
  * Content for conspire documents
  */
 interface ConspireDocumentData {
+	/**
+	 * Conspire Gallery field in *conspire*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: conspire.conspire_gallery[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	conspire_gallery: prismic.GroupField<Simplify<ConspireDocumentDataConspireGalleryItem>>;
+
 	/**
 	 * Slice Zone field in *conspire*
 	 *
@@ -895,6 +921,7 @@ declare module '@prismicio/client' {
 		export type {
 			ConspireDocument,
 			ConspireDocumentData,
+			ConspireDocumentDataConspireGalleryItem,
 			ConspireDocumentDataSlicesSlice,
 			EvidenceDocument,
 			EvidenceDocumentData,

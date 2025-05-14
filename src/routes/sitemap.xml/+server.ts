@@ -1,5 +1,3 @@
-export const prerender = true;
-
 // Define your site's base URL
 const BASE_URL = 'https://theidest.com';
 

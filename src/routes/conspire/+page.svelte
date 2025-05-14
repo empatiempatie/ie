@@ -2,8 +2,8 @@
 	import { Body } from 'svelte-body';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import { components } from '$lib/slices';
-	import { SliceZone } from '@prismicio/svelte';
+	import { PrismicImage } from '@prismicio/svelte';
+	import type { ImageField } from '@prismicio/types';
 
 	const { data } = $props();
 
@@ -12,9 +12,18 @@
 	let isSubmitting = $state(false);
 	let visitHovered = $state(false);
 	let submitHovered = $state(false);
+	let image = $state<ImageField | null>(null);
 
 	function navigateHome() {
 		goto('/');
+	}
+
+	function getRandomImageFromGallery() {
+		if (data.page.data.conspire_gallery.length > 0) {
+			const randomIndex = Math.floor(Math.random() * data.page.data.conspire_gallery.length);
+			return data.page.data.conspire_gallery[randomIndex].image;
+		}
+		return null;
 	}
 
 	function handleSubmit() {
@@ -42,20 +51,19 @@
 				console.error('Form submission error:', errorMessage, result);
 			}
 
+			image = getRandomImageFromGallery();
 			update();
 		};
 	}
 </script>
 
 <Body style="background-color: #fafafa" />
-<!-- <SliceZone slices={data.page.data.slices} {components} /> -->
-
 <section>
 	<h1>Conspire with us</h1>
 
 	{#if success}
-		<div class="success-message">
-			<p>Mischief submitted!</p>
+		<div class="success">
+			<PrismicImage field={image} />
 		</div>
 	{:else}
 		{#if errorMessage}
@@ -66,12 +74,9 @@
 
 		<form method="POST" use:enhance={handleSubmit} aria-live="polite">
 			<div class="form-field">
-				<!-- <label for="name"><i>Name:</i></label> -->
 				<input aria-label="name" placeholder="Name:" id="name" name="name" type="text" required />
 			</div>
-
 			<div class="form-field">
-				<!-- <label for="email"><i>Email:</i></label> -->
 				<input
 					aria-label="email"
 					placeholder="Email:"
@@ -81,9 +86,7 @@
 					required
 				/>
 			</div>
-
 			<div class="form-field">
-				<!-- <label for="evidence"><i>Evidence:</i></label> -->
 				<input
 					aria-label="evidence"
 					placeholder="Evidence:"
@@ -93,9 +96,7 @@
 					required
 				/>
 			</div>
-
 			<div class="form-field">
-				<!-- <label for="details"><i>Details:</i></label> -->
 				<textarea
 					aria-label="details"
 					placeholder="Details:"
@@ -105,7 +106,6 @@
 					required
 				></textarea>
 			</div>
-
 			<div class="button-container">
 				<button
 					type="submit"
@@ -143,10 +143,6 @@
 		margin: 0 0 2rem 0;
 	}
 
-	/* label {
-		display: block;
-	} */
-
 	textarea {
 		resize: vertical;
 		min-height: 6rem;
@@ -172,7 +168,7 @@
 	input:-webkit-autofill {
 		-webkit-box-shadow: 0 0 0 30px #fafafa inset;
 	}
-
+	
 	input::placeholder,
 	textarea::placeholder {
 		font-family: 'Inter';
@@ -238,12 +234,19 @@
 		margin: 3rem 0 3rem -0.7rem;
 	}
 
-	.success-message {
-		padding: 1rem;
-		margin: 12rem 0 0 0;
-		background-color: #fafafa;
-		border: 1px solid #0b0b0b;
-		text-align: center;
+	.success {
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		height: 400px;
+		margin: 0 0 2rem -0.7rem;
+	}
+
+	.success :global(img) {
+		width: auto;
+		height: 100%;
+		max-width: 100%;
+		object-fit: contain;
 	}
 
 	.error-message {
@@ -262,10 +265,16 @@
 			font-size: 1rem;
 		}
 	}
+
 	@media (max-width: 1024px) {
 		.button-container {
 			width: 100%;
 			margin: 3rem 0 3rem 0;
+		}
+
+		.success {
+			width: 100%;
+			margin: 0 0 2rem 0;
 		}
 	}
 </style>

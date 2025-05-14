@@ -1,14 +1,34 @@
 {
 	"format": "page",
 	"id": "conspire",
+	"label": "conspire",
+	"repeatable": false,
+	"status": true,
 	"json": {
 		"Main": {
+			"conspire_gallery": {
+				"type": "Group",
+				"config": {
+					"label": "Conspire Gallery",
+					"repeat": true,
+					"fields": {
+						"image": {
+							"type": "Image",
+							"config": {
+								"label": "Image",
+								"constraint": {},
+								"thumbnails": []
+							}
+						}
+					}
+				}
+			},
 			"slices": {
+				"type": "Slices",
+				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {}
-				},
-				"fieldset": "Slice Zone",
-				"type": "Slices"
+				}
 			}
 		},
 		"SEO & Metadata": {
@@ -38,8 +58,5 @@
 				"type": "Image"
 			}
 		}
-	},
-	"label": "conspire",
-	"repeatable": false,
-	"status": true
+	}
 }
