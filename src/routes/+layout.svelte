@@ -1,12 +1,15 @@
 <script lang="ts">
 	import '../app.css';
+	import { Body } from 'svelte-body';
 	import logo from '$lib/images/ie-logo.svg';
 	import { titles, footerData } from '$lib/utils/content';
-
-	let { children } = $props();
+	
+	let { children, data } = $props();
 </script>
 
-<div class="page-container">
+<Body style="background-color: {data.backgroundColor}" />
+
+<div class="page-container" style="background-color: {data.backgroundColor}">
 	<header>
 		<span class="site-logo">
 			<a href="/">{titles.main}</a>
@@ -34,6 +37,7 @@
 <style>
 	header {
 		margin-bottom: 5rem;
+		display: flex;
 	}
 
 	.site-logo {
@@ -48,11 +52,14 @@
 		cursor: default;
 		user-select: none;
 		color: #0b0b0b;
+		overflow: hidden;
 	}
 
 	.site-logo a {
 		color: inherit;
 		text-decoration: none;
+		display: block;
+		width: 0.85em;
 	}
 
 	.page-container {
@@ -86,6 +93,7 @@
 	.footer-right {
 		font-size: 0.8rem;
 		font-weight: 400;
+		letter-spacing: -0.02em;
 	}
 
 	.footer-left {

@@ -33,6 +33,10 @@
 		width: 100vw;
 	}
 
+	.aside-container :global(p) {
+		letter-spacing: -0.02em;
+	}
+
 	.buttons-container {
 		display: flex;
 		flex-direction: row;

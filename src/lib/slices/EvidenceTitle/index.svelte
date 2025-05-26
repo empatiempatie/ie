@@ -32,11 +32,6 @@
 		font-size: 2.5rem;
 		font-weight: 400;
 		line-height: 1;
-		letter-spacing: -0.07em;
+		letter-spacing: -0.03em;
 	}
-
-	/* .evidence-date :global(p) {
-		font-size: 1.6rem;
-		font-weight: 300;
-	} */
 </style>

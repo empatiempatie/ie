@@ -28,7 +28,7 @@
 	let {
 		tag = 'heading1',
 		content,
-		flashColor = '#E35B52',
+		flashColor = 'e35b52',
 		flashInterval = 150,
 		flashDuration = 100,
 		glitchInterval = 2000,

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Body } from 'svelte-body';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { PrismicImage } from '@prismicio/svelte';
@@ -57,7 +56,6 @@
 	}
 </script>
 
-<Body style="background-color: #fafafa" />
 <section>
 	<h1>Conspire with us</h1>
 
@@ -199,7 +197,6 @@
 		font-weight: 300;
 		font-size: 1.4rem;
 		line-height: 1.3;
-		letter-spacing: -0.02em;
 		color: #fafafa;
 		margin: 0;
 		word-break: keep-all;

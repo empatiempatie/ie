@@ -51,6 +51,10 @@
 		margin: 0 0 0.8rem 0;
 	}
 
+	.evidence-item :global(span) {
+		letter-spacing: -0.02em;
+	}
+	
 	.evidence-item :global(a) {
 		color: inherit;
 		text-decoration: none;
@@ -70,7 +74,6 @@
 		font-style: italic;
 		font-size: 0.8rem;
 		line-height: 1.3;
-		letter-spacing: -0.02em;
 		color: #0b0b0b;
 		cursor: default;
 		user-select: none;

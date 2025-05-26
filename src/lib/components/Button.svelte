@@ -46,7 +46,6 @@
 		font-weight: 300;
 		font-size: 1.4rem;
 		line-height: 1.3;
-		letter-spacing: -0.02em;
 		color: #fafafa;
 		margin: 0;
 		word-break: keep-all;
