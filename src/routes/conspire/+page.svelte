@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { PrismicImage } from '@prismicio/svelte';
@@ -12,6 +13,10 @@
 	let visitHovered = $state(false);
 	let submitHovered = $state(false);
 	let image = $state<ImageField | null>(null);
+
+	onMount(() => {
+		image = getRandomImageFromGallery();
+	});
 
 	function navigateHome() {
 		goto('/');
@@ -40,7 +45,6 @@
 
 			if (result.type === 'success' || result.data?.success === true) {
 				success = true;
-				image = getRandomImageFromGallery();
 			} else if (
 				result.type === 'error' ||
 				result.type === 'failure' ||
@@ -166,7 +170,7 @@
 	input:-webkit-autofill {
 		-webkit-box-shadow: 0 0 0 30px #fafafa inset;
 	}
-	
+
 	input::placeholder,
 	textarea::placeholder {
 		font-family: 'Inter';
