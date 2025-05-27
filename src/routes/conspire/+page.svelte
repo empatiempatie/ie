@@ -40,6 +40,7 @@
 
 			if (result.type === 'success' || result.data?.success === true) {
 				success = true;
+				image = getRandomImageFromGallery();
 			} else if (
 				result.type === 'error' ||
 				result.type === 'failure' ||
@@ -50,7 +51,6 @@
 				console.error('Form submission error:', errorMessage, result);
 			}
 
-			image = getRandomImageFromGallery();
 			update();
 		};
 	}
