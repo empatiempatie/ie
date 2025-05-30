@@ -71,10 +71,7 @@ export const actions = {
 				`
 			};
 
-			await Promise.all([
-				transporter.sendMail(businessEmail),
-				transporter.sendMail(userEmail)
-			]);
+			await Array.fromAsync([businessEmail, userEmail], (mail) => transporter.sendMail(mail));
 
 			return {
 				success: true,
