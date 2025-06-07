@@ -64,7 +64,7 @@
 	<h1>Conspire with us</h1>
 
 	{#if success}
-		<div class="success">
+		<div class="success-container">
 			<PrismicImage field={image} />
 		</div>
 	{:else}
@@ -227,26 +227,22 @@
 	}
 
 	.button-container {
-		width: 100vw;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		gap: 0.4em;
-		margin: 3rem 0 3rem -0.7rem;
+		margin: 3rem 0;
 	}
 
-	.success {
-		width: 100vw;
+	.success-container {
 		display: flex;
-		justify-content: center;
 		height: 400px;
-		margin: 0 0 2rem -0.7rem;
+		margin-bottom: 2rem;
 	}
 
-	.success :global(img) {
-		width: auto;
+	.success-container :global(img) {
+		width: 100%;
 		height: 100%;
-		max-width: 100%;
 		object-fit: contain;
 	}
 
@@ -264,18 +260,6 @@
 		span,
 		button {
 			font-size: 1rem;
-		}
-	}
-
-	@media (max-width: 1024px) {
-		.button-container {
-			width: 100%;
-			margin: 3rem 0 3rem 0;
-		}
-
-		.success {
-			width: 100%;
-			margin: 0 0 2rem 0;
 		}
 	}
 </style>

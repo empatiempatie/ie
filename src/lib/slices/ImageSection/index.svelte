@@ -16,19 +16,14 @@
 
 <style>
 	.image-aside-container {
-		text-align: center;
-		width: 100vw;
+		display: flex;
+		height: 450px;
 		margin: 0 0 var(--section-margin, 0) 0;
 	}
 
 	:global(.image-aside-container img) {
-		max-width: 100%;
-		height: auto;
-	}
-
-	@media (max-width: 1024px) {
-		.image-aside-container {
-			width: 100%;
-		}
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 </style>

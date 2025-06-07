@@ -1,5 +1,5 @@
 export const titles = {
-	main: 'ie',
+	main: 'i.e.,',
 	subtitle: 'Cursed tech for<br />mischievous togetherness',
 	manifesto: 'Manifesto',
 	evidence: 'Evidence',
@@ -52,5 +52,5 @@ export const evidenceData = [
 
 export const footerData = {
 	leftColumn: '© i.e., 2025',
-	rightColumn: ['no cookies,', 'no analytics.']
+	rightColumn: ['no cookies, ', 'no analytics.']
 };

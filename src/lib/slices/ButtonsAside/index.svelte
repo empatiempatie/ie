@@ -29,8 +29,7 @@
 
 <style>
 	.aside-container {
-		margin: 0 0 var(--aside-margin, 0) -0.7rem;
-		width: 100vw;
+		margin: 0 0 var(--aside-margin, 0) 0;
 	}
 
 	.aside-container :global(p) {
@@ -49,12 +48,5 @@
 		font-size: 0.9rem;
 		font-weight: 400;
 		text-align: center;
-	}
-
-	@media (max-width: 1024px) {
-		.aside-container {
-			width: 100%;
-			margin: 0 0 var(--aside-margin, 0) 0;
-		}
 	}
 </style>

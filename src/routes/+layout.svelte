@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { Body } from 'svelte-body';
-	import logo from '$lib/images/ie-logo.svg';
+	// import logo from '$lib/images/ie-logo.svg';
 	import { titles, footerData } from '$lib/utils/content';
 	
 	let { children, data } = $props();
@@ -22,21 +22,29 @@
 
 	<footer>
 		<p class="footer-left">{footerData.leftColumn}</p>
-		<img src={logo} alt="i.e., logo" />
+		<!-- <img src={logo} alt="i.e., logo" /> -->
 		<p class="footer-right">
 			{#each footerData.rightColumn as item, index}
 				{item}
-				{#if index < footerData.rightColumn.length - 1}
+				<!-- {#if index < footerData.rightColumn.length - 1}
 					<br />
-				{/if}
+				{/if} -->
 			{/each}
 		</p>
 	</footer>
 </div>
 
 <style>
+	.page-container {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
 	header {
-		margin-bottom: 5rem;
+		padding: 0.7rem 0.7rem 0 0.7rem;
+		margin-bottom: 4rem;
 		display: flex;
 	}
 
@@ -45,7 +53,7 @@
 		font-weight: 300;
 		font-size: 8.5rem;
 		line-height: 1;
-		letter-spacing: -0.15em;
+		letter-spacing: -0.12em;
 		word-break: keep-all;
 		white-space: normal;
 		hyphens: manual;
@@ -59,35 +67,25 @@
 		color: inherit;
 		text-decoration: none;
 		display: block;
-		width: 0.85em;
-	}
-
-	.page-container {
-		position: relative;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-	}
-
-	footer,
-	header {
-		padding: 0 0.7em;
+		width: 1.5em;
+		height: 1.2em;
 	}
 
 	footer {
+		padding: 0 0.7rem 0.5rem 0.7rem;
 		font-size: 0.9rem;
 		display: grid;
-		margin: 0 0 0.5rem 0;
-		grid-template-columns: 1fr auto 1fr;
+		/* grid-template-columns: 1fr auto 1fr; */
+		grid-template-columns: 1fr 1fr;
 		align-items: start;
 		color: #0b0b0b;
 	}
 
-	footer img {
+	/* footer img {
 		width: 1.5rem;
 		height: auto;
 		margin: 0;
-	}
+	} */
 
 	.footer-left,
 	.footer-right {
@@ -102,5 +100,11 @@
 
 	.footer-right {
 		text-align: right;
+	}
+
+	@media (min-width: 1920px) {
+		.page-container {
+			padding: 0 10rem;
+		}
 	}
 </style>

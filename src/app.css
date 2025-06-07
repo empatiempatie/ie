@@ -18,7 +18,7 @@ body {
 }
 
 main {
-	padding: 0 30em 0 0.7em;
+	padding: 0 0.7em;
 	flex: 1;
 }
 
@@ -64,10 +64,4 @@ label {
 	word-break: keep-all;
 	white-space: normal;
 	hyphens: manual;
-}
-
-@media (max-width: 1024px) {
-	main {
-		padding: 0 0.7em;
-	}
 }
