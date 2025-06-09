@@ -3,6 +3,7 @@
 	import { SliceZone } from '@prismicio/svelte';
 
 	const { data } = $props();
+	console.log(data.page.data.slices);
 </script>
 
 <div class="evidence-page-wrapper">

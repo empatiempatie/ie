@@ -7,7 +7,9 @@
 		firstHalf?: string | KeyTextField;
 		secondHalf?: string | KeyTextField;
 		specialChar?: string | KeyTextField;
-		route: ContentRelationshipField;
+		route?: ContentRelationshipField;
+		type?: 'button' | 'submit';
+		onClick?: () => void;
 	}
 
 	let {
@@ -15,26 +17,50 @@
 		firstHalf = '',
 		secondHalf = '',
 		specialChar = '',
-		route
+		route,
+		onClick,
+		type = 'button'
 	}: Props = $props();
 
 	let isHovered = $state(false);
+
+	function handleClick() {
+		if (!disabled && onClick) {
+			onClick();
+		}
+	}
 </script>
 
-<PrismicLink field={route}>
+{#if route}
+	<PrismicLink field={route}>
+		<button
+			type="button"
+			{disabled}
+			onmouseenter={() => !disabled && (isHovered = true)}
+			onmouseleave={() => !disabled && (isHovered = false)}
+			class:disabled
+		>
+			{firstHalf} <span>{specialChar}</span>{secondHalf}
+			{#if isHovered}
+				<span>→</span>
+			{/if}
+		</button>
+	</PrismicLink>
+{:else}
 	<button
-		type="button"
+		{type}
 		{disabled}
+		onclick={handleClick}
 		onmouseenter={() => !disabled && (isHovered = true)}
 		onmouseleave={() => !disabled && (isHovered = false)}
 		class:disabled
 	>
-		{firstHalf} <span>{specialChar}</span>{secondHalf}
+		{firstHalf}<span>{specialChar}</span>{secondHalf}
 		{#if isHovered}
 			<span>→</span>
 		{/if}
 	</button>
-</PrismicLink>
+{/if}
 
 <style>
 	span {

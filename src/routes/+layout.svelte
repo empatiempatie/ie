@@ -1,15 +1,17 @@
 <script lang="ts">
 	import '../app.css';
 	import { Body } from 'svelte-body';
+	import { page } from '$app/state';
 	// import logo from '$lib/images/ie-logo.svg';
 	import { titles, footerData } from '$lib/utils/content';
 	
 	let { children, data } = $props();
+	let backgroundColor = $derived(page.error ? '#e35b52' : data.backgroundColor);
 </script>
 
-<Body style="background-color: {data.backgroundColor}" />
+<Body style="background-color: {backgroundColor}" />
 
-<div class="page-container" style="background-color: {data.backgroundColor}">
+<div class="page-container" style="background-color: {backgroundColor}">
 	<header>
 		<span class="site-logo">
 			<a href="/">{titles.main}</a>

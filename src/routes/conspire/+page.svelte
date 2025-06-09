@@ -1,26 +1,21 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { enhance } from '$app/forms';
-	import { goto } from '$app/navigation';
 	import { PrismicImage } from '@prismicio/svelte';
 	import type { ImageField } from '@prismicio/types';
+	import Button from '$lib/components/Button.svelte';
+	import { navigateHome } from '$lib/utils/navigation';
 
 	const { data } = $props();
 
 	let success = $state(false);
 	let errorMessage = $state('');
 	let isSubmitting = $state(false);
-	let visitHovered = $state(false);
-	let submitHovered = $state(false);
 	let image = $state<ImageField | null>(null);
 
 	onMount(() => {
 		image = getRandomImageFromGallery();
 	});
-
-	function navigateHome() {
-		goto('/');
-	}
 
 	function getRandomImageFromGallery() {
 		if (data.page.data.conspire_gallery.length > 0) {
@@ -108,33 +103,21 @@
 					required
 				></textarea>
 			</div>
-			<div class="button-container">
-				<button
+			<div class="buttons-container">
+				<Button
 					type="submit"
 					disabled={isSubmitting}
-					onmouseenter={() => !isSubmitting && (submitHovered = true)}
-					onmouseleave={() => !isSubmitting && (submitHovered = false)}
-					class:disabled={isSubmitting}
-				>
-					{isSubmitting ? 'Cooking...' : 'Submit'}
-					{#if submitHovered}
-						<span>→</span>
-					{/if}
-				</button>
-				<button
-					type="button"
+					firstHalf={isSubmitting ? 'Co' : 'Sub'}
+					specialChar={isSubmitting ? 'o' : 'm'}
+					secondHalf={isSubmitting ? 'king...' : 'it'}
+				/>
+				<Button
 					disabled={isSubmitting}
-					onclick={navigateHome}
-					onmouseenter={() => !isSubmitting && (visitHovered = true)}
-					onmouseleave={() => !isSubmitting && (visitHovered = false)}
-					class:disabled={isSubmitting}
-					aria-label="Go Back"
-				>
-					G<span>o</span> Back
-					{#if visitHovered}
-						<span>→</span>
-					{/if}
-				</button>
+					onClick={navigateHome}
+					firstHalf=""
+					specialChar="G"
+					secondHalf="o Back"
+				/>
 			</div>
 		</form>
 	{/if}
@@ -192,46 +175,16 @@
 		border-color: #0b0b0b;
 	}
 
-	span {
-		font-family: 'Inknut Antiqua';
-	}
-
-	span,
-	button {
-		font-weight: 300;
-		font-size: 1.4rem;
-		line-height: 1.3;
-		color: #fafafa;
-		margin: 0;
-		word-break: keep-all;
-		white-space: normal;
-		hyphens: manual;
-	}
-
-	button {
-		font-family: 'Inter';
-		background-color: #0b0b0b;
-		padding: 0.8em 0.5em;
-		cursor: pointer;
-		border: none;
+	.buttons-container {
+		display: flex;
+		flex-direction: row;
 		justify-content: center;
-	}
-
-	button.disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
+		gap: 0.4rem;
+		margin: 3rem 0;
 	}
 
 	.form-field {
 		margin-bottom: 1rem;
-	}
-
-	.button-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 0.4em;
-		margin: 3rem 0;
 	}
 
 	.success-container {
@@ -254,12 +207,5 @@
 		margin-bottom: 1.5rem;
 		border-radius: 3px;
 		font-family: 'Inter';
-	}
-
-	@media (max-width: 768px) {
-		span,
-		button {
-			font-size: 1rem;
-		}
 	}
 </style>

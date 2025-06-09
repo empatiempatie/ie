@@ -1,9 +1,15 @@
 import { createClient } from '$lib/prismicio';
+import { error } from '@sveltejs/kit';
 
 export async function load({ params, fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
-	const page = await client.getByUID('evidence', params.uid);
-	return { page };
+
+	try {
+		const page = await client.getByUID('evidence', params.uid);
+		return { page };
+	} catch (prismic_error) {
+		error(404, 'Evidence not found');
+	}
 }
 
 export async function entries() {
