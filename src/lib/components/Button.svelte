@@ -86,6 +86,8 @@
 		cursor: pointer;
 		border: none;
 		justify-content: center;
+		pointer-events: all;
+		z-index: 1;
 	}
 
 	button.disabled {

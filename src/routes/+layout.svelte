@@ -4,14 +4,19 @@
 	import { page } from '$app/state';
 	// import logo from '$lib/images/ie-logo.svg';
 	import { titles, footerData } from '$lib/utils/content';
-	
+
 	let { children, data } = $props();
+	let isErrorPage = $derived(page.error);
 	let backgroundColor = $derived(page.error ? '#e35b52' : data.backgroundColor);
 </script>
 
 <Body style="background-color: {backgroundColor}" />
 
-<div class="page-container" style="background-color: {backgroundColor}">
+<div
+	class="page-container"
+	style="background-color: {backgroundColor}"
+	class:error-page={isErrorPage}
+>
 	<header>
 		<span class="site-logo">
 			<a href="/">{titles.main}</a>
@@ -44,6 +49,10 @@
 		flex-direction: column;
 	}
 
+	.page-container.error-page {
+		pointer-events: none;
+	}
+
 	header {
 		padding: 0.7rem 0.7rem 0 0.7rem;
 		margin-bottom: 4rem;
@@ -63,6 +72,8 @@
 		user-select: none;
 		color: #0b0b0b;
 		overflow: hidden;
+		z-index: 1;
+		pointer-events: all;
 	}
 
 	.site-logo a {

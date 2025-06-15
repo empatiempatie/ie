@@ -5,12 +5,12 @@
 	import { navigateHome } from '$lib/utils/navigation';
 </script>
 
+<ErrorDrawText />
 <div class="error-container">
 	<div class="canvas-section">
 		<div class="error-message">
 			<p>This page doesn't seem to be working → {page.status} {page.error?.message}</p>
 		</div>
-		<ErrorDrawText />
 	</div>
 	<div class="buttons-container">
 		<Button
@@ -27,6 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		height: 65vh;
+		pointer-events: none;
 	}
 
 	.canvas-section {
@@ -40,8 +41,6 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		z-index: 10;
-		pointer-events: none;
 	}
 
 	.error-message p {
