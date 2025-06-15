@@ -2,24 +2,26 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
-	// Drawing with text. Ported from Generative Design book - http://www.generative-gestaltung.de - Original licence: http://www.apache.org/licenses/LICENSE-2.0
+	/*
+	 * Drawing with text.
+	 * Ported from Generative Design book - http://www.generative-gestaltung.de
+	 * Original licence: http://www.apache.org/licenses/LICENSE-2.0
+	 * https://github.com/generative-design/
+	 */
+
+	let { errorStatus = '' }: { errorStatus?: string | number } = $props();
 
 	let position = { x: 0, y: 0 };
 	let counter = 0;
 	let minFontSize = 3;
-	let letters = 'Grrrrrrrrrrr! >:( ';
-
+	
 	let canvas: HTMLCanvasElement | undefined = $state();
 	let context: CanvasRenderingContext2D;
 	let mouse = { x: 0, y: 0, down: false };
-	let mounted = false;
-
-	onMount(() => {
-		if (browser) {
-			init();
-			mounted = true;
-		}
-	});
+	
+	let letters = $derived(errorStatus ? `${errorStatus} Grrrrrrrrrrr! >:( ` : 'Grrrrrrrrrrr! >:( ');
+	
+	onMount(() => init());
 
 	function init() {
 		try {

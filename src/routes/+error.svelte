@@ -5,11 +5,11 @@
 	import { navigateHome } from '$lib/utils/navigation';
 </script>
 
-<ErrorDrawText />
+<ErrorDrawText errorStatus={page.status} />
 <div class="error-container">
 	<div class="canvas-section">
 		<div class="error-message">
-			<p>This page doesn't seem to be working → {page.status} {page.error?.message}</p>
+			<p>This page doesn't seem to be working</p>
 		</div>
 	</div>
 	<div class="buttons-container">
