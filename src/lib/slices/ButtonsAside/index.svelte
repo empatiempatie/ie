@@ -29,7 +29,8 @@
 
 <style>
 	.aside-container {
-		margin: 0 0 var(--aside-margin, 0) 0;
+		margin-top: auto;
+		margin-bottom: var(--aside-margin, 3rem);
 	}
 
 	.aside-container :global(p) {

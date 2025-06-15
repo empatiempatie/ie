@@ -59,7 +59,8 @@
 		flex-direction: row;
 		justify-content: center;
 		gap: 0.4rem;
-		margin: 3rem 0;
+		margin-top: auto;
+		margin-bottom: 4.1rem;
 	}
 
 	@media (max-width: 768px) {

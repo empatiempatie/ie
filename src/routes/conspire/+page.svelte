@@ -124,6 +124,12 @@
 </section>
 
 <style>
+	section, form {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
 	h1 {
 		margin: 0 0 2rem 0;
 	}
@@ -180,7 +186,8 @@
 		flex-direction: row;
 		justify-content: center;
 		gap: 0.4rem;
-		margin: 3rem 0;
+		margin-top: auto;
+		margin-bottom: 6rem;
 	}
 
 	.form-field {
